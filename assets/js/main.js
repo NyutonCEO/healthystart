@@ -25,6 +25,24 @@ document.querySelectorAll('.submenu-toggle').forEach((btn) => {
     btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
     li?.classList.toggle('open', !expanded);
   });
+  btn.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const li = btn.closest('.has-submenu');
+      li?.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.focus();
+    }
+  });
+});
+
+// Click outside to close any open submenu
+document.addEventListener('click', (e) => {
+  document.querySelectorAll('.has-submenu.open').forEach(li => {
+    if (!li.contains(e.target)) {
+      li.classList.remove('open');
+      li.querySelector('.submenu-toggle')?.setAttribute('aria-expanded', 'false');
+    }
+  });
 });
 
 // Quote estimator

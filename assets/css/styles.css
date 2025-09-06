@@ -104,6 +104,22 @@ label { font-weight: 600; font-size: .95rem; }
 .table th, .table td { border-bottom: 1px solid var(--border); padding: .75rem; text-align: left; }
 .table th { background: #f9fafb; }
 
+/* Accordion */
+.accordion { display: grid; gap: .5rem; }
+.accordion-group { margin-top: 1rem; }
+.accordion h2, .accordion h3 { margin: 1rem 0 .5rem; color: var(--blue); }
+.accordion-item { border: 1px solid var(--border); border-radius: 12px; background: #fff; overflow: hidden; }
+.accordion-trigger {
+  width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center;
+  gap: .75rem; padding: .85rem 1rem; background: #fff; border: none; font: inherit; cursor: pointer;
+}
+.accordion-trigger:hover { background: #f9fafb; }
+.accordion-trigger .label { font-weight: 600; }
+.accordion-trigger .chevron { transition: transform .2s ease; }
+.accordion-item[open] .chevron { transform: rotate(180deg); }
+.accordion-panel { padding: 0 1rem 1rem; }
+.accordion-panel p { margin: .25rem 0 0; }
+
 .site-footer { border-top: 1px solid var(--border); margin-top: 3rem; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; padding: 2rem 0; }
 .brand-footer { display: grid; grid-template-columns: auto 1fr; gap: .75rem; align-items: center; }

@@ -47,19 +47,27 @@ document.addEventListener('click', (e) => {
 
 // Quote estimator
 function calculateQuote() {
-  const miles = parseFloat(document.getElementById('miles')?.value || '0');
-  const wait = parseFloat(document.getElementById('wait')?.value || '0');
-  const afterHours = document.getElementById('afterHours')?.checked;
-  const wheelchair = document.getElementById('wheelchair')?.checked;
-  const base = 15;         // Example base fee
-  const perMile = 2.25;    // Example per-mile
-  const perMinWait = 0.75; // Example per-minute wait time
-  const wheelchairFee = 15;
-  let total = base + (miles * perMile) + (wait * perMinWait);
-  if (wheelchair) total += wheelchairFee;
-  if (afterHours) total *= 1.2; // After-hours multiplier
+  const tripLocal = document.getElementById('tripLocal');
+  const milesInput = document.getElementById('miles');
+  const milesRow = document.getElementById('milesRow');
   const res = document.getElementById('quoteResult');
-  if (res) res.textContent = `$${total.toFixed(2)} (est.)`;
+  const note = document.getElementById('quoteNote');
+
+  const perMile = 2.50; // Out-of-town per-mile example
+
+  if (tripLocal && tripLocal.checked) {
+    if (milesRow) milesRow.hidden = true;
+    if (res) res.textContent = `$${(20).toFixed(2)}`; // Local Wilson roundtrip
+    if (note) note.textContent = 'Local Wilson roundtrip. Pricing subject to change.';
+    return;
+  }
+
+  // Out-of-town
+  if (milesRow) milesRow.hidden = false;
+  const miles = parseFloat(milesInput?.value || '0');
+  const total = Math.max(0, miles * perMile);
+  if (res) res.textContent = `$${total.toFixed(2)}`;
+  if (note) note.textContent = 'Out-of-town estimate at $2.50/mile. Minimum fare may apply.';
 }
 
 // Simple form handlers (demo only)

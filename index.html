@@ -101,7 +101,18 @@
       <span class="badge">On‑time pickup SLA</span>
       <span class="badge">HIPAA‑conscious processes</span>
       <span class="badge">Wheelchair‑accessible partners</span>
-      <span class="badge">Medicaid & broker integration</span>
+      <span class="badge">Background‑checked drivers</span>
+    </div>
+    <div class="badges" style="margin-top:.5rem;">
+      <span class="badge">Wilson</span>
+      <span class="badge">Halifax</span>
+      <span class="badge">Hertford</span>
+      <span class="badge">Nash</span>
+      <span class="badge">Johnston</span>
+      <span class="badge">Wake</span>
+      <span class="badge">Durham</span>
+      <span class="badge">Orange</span>
+      <span class="badge">Edgecombe</span>
     </div>
     <div style="margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap;">
       <a class="btn btn-primary" href="patients.html">Book Ride</a>
@@ -109,25 +120,28 @@
     </div>
     <div class="kpis" style="margin-top:1rem;">
       <div class="kpi"><strong>97%</strong><span class="muted small">on‑time arrivals (target)</span></div>
-      <div class="kpi"><strong>24/7</strong><span class="muted small">ride coordination</span></div>
-      <div class="kpi"><strong>2</strong><span class="muted small">county contracts live</span></div>
-      <div class="kpi"><strong>$20–$40</strong><span class="muted small">typical one‑way fare</span></div>
+      <div class="kpi"><strong>Mon–Sat</strong><span class="muted small">rides; Sun by reservation</span></div>
+      <div class="kpi"><strong>9</strong><span class="muted small">counties served</span></div>
+      <div class="kpi"><strong>$20+</strong><span class="muted small">roundtrip local (Wilson)</span></div>
     </div>
   </div>
   <div>
     <div class="hero-card">
       <h3>Get an instant estimate</h3>
       <form class="hero-form" oninput="calculateQuote()">
-        <div class="row">
-          <div><label>Miles<input id="miles" class="input" type="number" min="0" step="0.1" placeholder="e.g., 12"></label></div>
-          <div><label>Wait Time (min)<input id="wait" class="input" type="number" min="0" step="1" placeholder="e.g., 10"></label></div>
-        </div>
-        <div class="row">
-          <label><input id="wheelchair" type="checkbox"> Wheelchair‑accessible vehicle</label>
-          <label><input id="afterHours" type="checkbox"> After‑hours pickup</label>
+        <fieldset style="border:none; padding:0; margin:0 0 .5rem;">
+          <legend class="small muted" style="margin-bottom:.25rem;">Trip type</legend>
+          <label><input type="radio" name="tripType" id="tripLocal" value="local" checked> Local (Wilson roundtrip)</label>
+          <label style="margin-left:1rem;"><input type="radio" name="tripType" id="tripOut" value="out"> Out‑of‑town (mileage)</label>
+        </fieldset>
+        <div class="row" id="milesRow" hidden>
+          <div><label>Miles<input id="miles" class="input" type="number" min="0" step="0.1" placeholder="e.g., 24"></label></div>
         </div>
         <div class="banner">
-          <div><strong>Estimated Fare: <span id="quoteResult">$0.00</span></strong><div class="small">This is an estimate for planning. Final pricing may vary by distance, time, and coverage.</div></div>
+          <div>
+            <strong>Estimated Fare: <span id="quoteResult">$20.00</span></strong>
+            <div class="small" id="quoteNote">Local Wilson roundtrip. Pricing subject to change.</div>
+          </div>
           <div class="actions"><a class="btn btn-light" href="pricing.html">See pricing</a><a class="btn btn-primary" href="patients.html#book">Book now</a></div>
         </div>
       </form>

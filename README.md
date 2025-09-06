@@ -35,6 +35,32 @@ These are not required now; we can implement them incrementally as needs arise.
   - Spacing: tweak `.nav-menu { gap: ... }` and `.header-cta .btn { padding: ... }` in `assets/css/styles.css`.
   - Dropdown label: change "Resources" text in each page’s header button.
 
+## Estimator & Service Area Enhancements (Suggestions)
+
+These are non-breaking improvements you can apply when ready. They document the latest requests and where to change things.
+
+- Explicit minimum fare (out-of-town): Add a minimum fare to the estimator so very short trips still meet your policy.
+  - What: enforce a minimum out-of-town fare (choose the dollar amount).
+  - Where: `assets/js/main.js` inside `calculateQuote()`.
+  - How: set a `const minFare = /* your value */;` and replace the total line with `const total = Math.max(minFare, miles * perMile);`.
+  - UI copy: update the note text in `index.html` near `#quoteNote` to reflect the minimum.
+
+- Mirror estimator on pricing page: Show the same quick estimate widget on `pricing.html` for consistency.
+  - What: copy the "Get an instant estimate" form markup from the index hero into `pricing.html`.
+  - Where: `index.html` hero block → duplicate in a suitable section of `pricing.html`.
+  - How: Ensure IDs remain the same (`tripLocal`, `tripOut`, `miles`, `quoteResult`, `quoteNote`, `milesRow`) so the existing `calculateQuote()` works without changes.
+
+- Make service area chips linkable: Turn the home page county chips into links that jump to Coverage anchors.
+  - What: convert chips from `<span class="badge">Wilson</span>` to `<a class="badge" href="coverage.html#wilson">Wilson</a>` (and so on).
+  - Where: `index.html` hero chips; `coverage.html` list.
+  - How: add matching IDs in `coverage.html`, e.g. `<li id="wilson">Wilson</li>`, `<li id="halifax">Halifax</li>`, etc. Keep lowercase, hyphenated IDs.
+
+### Current Estimator Behavior (for reference)
+
+- Local (Wilson roundtrip): fixed $20.00 estimate.
+- Out-of-town: `$2.50 * miles`; text note mentions pricing subject to change and that a minimum may apply.
+- Files: markup in `index.html` (hero form), logic in `assets/js/main.js` (`calculateQuote`).
+
 ## Testing Locally
 
 - Python 3 (recommended):

@@ -6,8 +6,26 @@ if (navToggle && navMenu) {
   navToggle.addEventListener('click', () => {
     const isOpen = navMenu.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    if (!isOpen) {
+      // Close any open submenus when main menu closes
+      document.querySelectorAll('.has-submenu').forEach(li => {
+        li.classList.remove('open');
+        li.querySelector('.submenu-toggle')?.setAttribute('aria-expanded', 'false');
+      });
+    }
   });
 }
+
+// Submenu toggles (supports mobile)
+document.querySelectorAll('.submenu-toggle').forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    const li = btn.closest('.has-submenu');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+    li?.classList.toggle('open', !expanded);
+  });
+});
 
 // Quote estimator
 function calculateQuote() {

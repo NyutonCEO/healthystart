@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Pricing & Quotes — Healthy Start Non‑Emergency Transportation</title>
+  <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Transparent pricing for Healthy Start NEMT with an instant estimate tool.">
+    <meta property="og:title" content="Pricing & Quotes">
+    <meta property="og:description" content="Transparent pricing for Healthy Start NEMT with an instant estimate tool.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Healthy Start Non‑Emergency Transportation">
+    <meta property="og:url" content="https://healthystartnc.com/">
+    <link rel="icon" href="assets/img/favicon.svg">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script defer src="assets/js/main.js"></script>
+    <script type="application/ld+json">
+    {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Healthy Start Non\u2011Emergency Transportation",
+  "url": "https://healthystartnc.com/",
+  "logo": "https://healthystartnc.com/assets/img/logo.svg",
+  "sameAs": [],
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "(XXX) XXX\u2011XXXX",
+      "contactType": "customer service",
+      "areaServed": "US-NC",
+      "availableLanguage": [
+        "English"
+      ]
+    }
+  ]
+}
+    </script>
+  <style>
+    /* Page specific critical styles (optional) */
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="index.html" class="brand">
+          <img src="assets/img/logo.svg" alt="Healthy Start Non‑Emergency Transportation logo" width="36" height="36" />
+          <span>Healthy Start Non‑Emergency Transportation</span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
+          <ul id="navMenu" class="nav-menu">
+            <li><a class="nav-link" href="patients.html">For Individuals</a></li>
+<li><a class="nav-link" href="organizations.html">For Organizations</a></li>
+<li><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+<li><a class="nav-link" href="coverage.html">Coverage</a></li>
+<li><a class="nav-link active" href="pricing.html">Pricing</a></li>
+<li><a class="nav-link" href="faq.html">FAQ</a></li>
+<li><a class="nav-link" href="compliance.html">Compliance</a></li>
+<li><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-cta">
+          <a class="btn btn-primary" href="patients.html">Book a Ride</a>
+          <a class="btn btn-outline" href="organizations.html">Request a Demo</a>
+        </div>
+      </div>
+      <div class="cta-bar">
+        <div class="container cta-bar-inner">
+          <span><strong>Need a ride?</strong> Call us now: <a href="tel:(XXX) XXX‑XXXX">(XXX) XXX‑XXXX</a></span>
+          <span class="cta-bar-actions">
+            <a class="btn btn-light" href="patients.html#book">Book Online</a>
+          </span>
+        </div>
+      </div>
+    </header>
+  <main id="main">
+    
+<section class="section container">
+  <h1>Pricing & Quotes</h1>
+  <p class="lead">Transparent, unit‑economics‑driven pricing with options for individuals, facilities, and payers.</p>
+  <div class="grid-2">
+    <div class="card">
+      <h2>Typical One‑Way Fare</h2>
+      <table class="table">
+        <thead><tr><th>Component</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Base Fee</td><td>$15.00</td></tr>
+          <tr><td>Per‑Mile</td><td>$2.25 / mile</td></tr>
+          <tr><td>Wait Time</td><td>$0.75 / min</td></tr>
+          <tr><td>Wheelchair Svc (if needed)</td><td>$15.00</td></tr>
+          <tr><td>After Hours</td><td>× 1.2</td></tr>
+        </tbody>
+      </table>
+      <p class="small muted">Examples only. Contracted rates vary by county, broker, and volume.</p>
+      <a class="btn btn-primary" href="patients.html#book">Book a ride</a>
+    </div>
+    <div class="card">
+      <h2>Instant Estimate</h2>
+      <form class="form" oninput="calculateQuote()">
+        <div class="row">
+          <div><label>Miles<input id="miles" class="input" type="number" min="0" step="0.1"></label></div>
+          <div><label>Wait (min)<input id="wait" class="input" type="number" min="0" step="1"></label></div>
+        </div>
+        <div class="row">
+          <label><input id="wheelchair" type="checkbox"> Wheelchair‑accessible</label>
+          <label><input id="afterHours" type="checkbox"> After‑hours</label>
+        </div>
+        <div class="banner"><div><strong>Estimated Fare: <span id="quoteResult">$0.00</span></strong></div><div class="actions"><a class="btn btn-light" href="patients.html#book">Book now</a></div></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+  </main>
+  <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <div class="brand brand-footer">
+            <img src="assets/img/logo.svg" alt="Healthy Start Non‑Emergency Transportation logo" width="40" height="40" />
+            <div>
+              <strong>Healthy Start Non‑Emergency Transportation</strong>
+              <div>123 Main St, Raleigh, NC</div>
+              <div><a href="tel:(XXX) XXX‑XXXX">(XXX) XXX‑XXXX</a> · <a href="mailto:rides@healthystartnc.com">rides@healthystartnc.com</a></div>
+            </div>
+          </div>
+          <p class="small muted">Reliable, compassionate rides for medical appointments, dialysis, physical therapy, and more. HIPAA-conscious processes and ADA-aware vehicle partners.</p>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <ul class="list">
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="compliance.html">Compliance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Get Started</h4>
+          <ul class="list">
+            <li><a href="patients.html">Individuals & Caregivers</a></li>
+            <li><a href="organizations.html">Clinics & Hospitals</a></li>
+            <li><a href="pricing.html">Pricing & Quotes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div class="small muted">© 2025 Healthy Start Non‑Emergency Transportation. All rights reserved.</div>
+        <div class="small"><a href="patients.html">For Individuals</a> · <a href="organizations.html">For Organizations</a> · <a href="how-it-works.html">How It Works</a> · <a href="coverage.html">Coverage</a> · <a href="pricing.html">Pricing</a> · <a href="faq.html">FAQ</a> · <a href="compliance.html">Compliance</a> · <a href="contact.html">Contact</a></div>
+      </div>
+    </footer>
+</body>
+</html>

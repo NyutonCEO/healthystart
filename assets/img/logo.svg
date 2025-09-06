@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="Healthy Start Non‑Emergency Transportation">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b2c5f" />
+      <stop offset="100%" stop-color="#0e4aa7" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="28" fill="url(#g)" />
+  <g fill="#fff" transform="translate(35,40)">
+    <path d="M55 0c18 0 33 15 33 33v12h22a10 10 0 0 1 10 10v28a10 10 0 0 1-10 10H60a10 10 0 0 1-10-10v-13H33v13a23 23 0 0 0 23 23h50a23 23 0 0 0 23-23V55a23 23 0 0 0-23-23h-8V33C98 15 83 0 65 0Z" opacity=".9"/>
+    <circle cx="22" cy="62" r="12" opacity=".9"/>
+    <rect x="10" y="78" width="96" height="16" rx="8" opacity=".9"/>
+  </g>
+</svg>

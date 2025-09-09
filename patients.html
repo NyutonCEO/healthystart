@@ -10,9 +10,11 @@
     <meta property="og:description" content="Book non‑emergency medical transportation with Healthy Start. Door‑to‑door rides and wheelchair‑accessible options.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Healthy Start Non‑Emergency Medical Transportation">
+    <meta property="og:image" content="https://healthystartnc.com/assets/img/20250908_0103_Accessible Van Assistance_remix_01k4kv774rf2dacfry55frbqvs.png">
+    <meta name="twitter:card" content="summary_large_image">
     <meta property="og:url" content="https://healthystartnc.com/patients.html">
     <link rel="canonical" href="https://healthystartnc.com/patients.html">
-    <link rel="icon" href="assets/img/favicon.svg">
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script defer src="assets/js/main.js"></script>
     <script type="application/ld+json">
@@ -21,7 +23,7 @@
   "@type": "Organization",
   "name": "Healthy Start Non\u2011Emergency Medical Transportation",
   "url": "https://healthystartnc.com/",
-  "logo": "https://healthystartnc.com/assets/img/logo.svg",
+  "logo": "https://healthystartnc.com/assets/img/logo.png",
   "sameAs": [],
   "contactPoint": [
     {
@@ -45,12 +47,13 @@
     <header class="site-header">
       <div class="container header-inner">
         <a href="index.html" class="brand">
-          <img src="assets/img/logo.svg" alt="Healthy Start Non‑Emergency Medical Transportation logo" width="36" height="36" />
+          <img src="assets/img/logo.png" alt="Healthy Start Non‑Emergency Medical Transportation logo" width="36" height="36" />
           <span>Healthy Start Non‑Emergency Medical Transportation</span>
         </a>
         <nav class="nav" aria-label="Primary">
           <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
           <ul id="navMenu" class="nav-menu">
+
             <li><a class="nav-link" href="patients.html">Patients</a></li>
             <li><a class="nav-link" href="organizations.html">Organizations</a></li>
             <li><a class="nav-link" href="how-it-works.html">How It Works</a></li>
@@ -60,7 +63,10 @@
                 <li><a class="nav-link" href="faq.html" role="menuitem">FAQ</a></li>
                 <li><a class="nav-link" href="coverage.html" role="menuitem">Coverage</a></li>
                 <li><a class="nav-link" href="compliance.html" role="menuitem">Compliance</a></li>
-                <li><a class="nav-link" href="pricing.html" role="menuitem">Pricing</a></li>
+              <li><a class="nav-link" href="pricing.html" role="menuitem">Pricing</a></li>
+              <li><a class="nav-link" href="about.html" role="menuitem">About</a></li>
+              <li><a class="nav-link" href="lab-transport.html" role="menuitem">Lab Transport</a></li>
+              <li><a class="nav-link" href="policies.html" role="menuitem">Policies</a></li>
               </ul>
             </li>
             <li><a class="nav-link" href="contact.html">Contact</a></li>
@@ -88,13 +94,14 @@
   <div class="grid-2">
     <div class="card" id="book">
       <h2>Book a Ride</h2>
-      <form id="bookForm" class="form">
+      <form id="bookForm" class="form" action="https://formspree.io/f/meolnaoq" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="_subject" value="New Ride Request from Patients Page">
         <div class="row">
-          <div><label>Full Name<input class="input" name="name" required placeholder="Jane Smith"></label></div>
-          <div><label>Phone<input class="input" name="phone" type="tel" required placeholder="(252) 674‑1812"></label></div>
+          <div><label>Full Name<input class="input" name="name" required placeholder="Jane Smith" autocomplete="name"></label></div>
+          <div><label>Phone<input class="input" name="phone" type="tel" required placeholder="(252) 674‑1812" autocomplete="tel"></label></div>
         </div>
         <div class="row">
-          <div><label>Pickup Address<input class="input" name="pickup" required placeholder="123 Main St"></label></div>
+          <div><label>Pickup Address<input class="input" name="pickup" required placeholder="123 Main St" autocomplete="address-line1"></label></div>
           <div><label>Drop‑off Facility<input class="input" name="dropoff" required placeholder="Clinic/Hospital name"></label></div>
         </div>
         <div class="row">
@@ -114,7 +121,8 @@
         <label>Notes (no PHI please)<textarea name="notes" rows="3" placeholder="Any access instructions or building details."></textarea></label>
         <div class="small muted">By submitting, you agree to our <a href="privacy.html">Privacy Policy</a>. Please do not include diagnosis or medical details.</div>
         <button class="btn btn-primary" type="submit">Request Ride</button>
-        <div id="bookSuccess" class="small" hidden>Thanks! We’ll call you at the number provided to confirm details.</div>
+        <div id="bookError" class="small" style="color:#b91c1c; margin-top:.5rem;" hidden></div>
+        <div id="bookSuccess" class="small" style="color:#065f46; margin-top:.5rem;" hidden>Thanks! We’ve received your request. We’ll be with you in 24 hours or less.</div>
       </form>
     </div>
     <div class="card">
@@ -142,7 +150,7 @@
       <div class="container footer-grid">
         <div>
           <div class="brand brand-footer">
-            <img src="assets/img/logo.svg" alt="Healthy Start Non‑Emergency Medical Transportation logo" width="40" height="40" />
+            <img src="assets/img/logo.png" alt="Healthy Start Non‑Emergency Medical Transportation logo" width="40" height="40" />
             <div>
               <strong>Healthy Start Non‑Emergency Medical Transportation</strong>
               <div>1760 Parkwood Blvd West, Suite B, Wilson, NC 27893</div>

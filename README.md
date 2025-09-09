@@ -58,7 +58,7 @@ These are non-breaking improvements you can apply when ready. They document the 
 ### Current Estimator Behavior (for reference)
 
 - Local (Wilson roundtrip): fixed $20.00 estimate.
-- Out-of-town: `$2.50 * miles`; text note mentions pricing subject to change and that a minimum may apply.
+- Out-of-town: `$4.15 * miles`; text note mentions pricing subject to change and that a minimum may apply.
 - Files: markup in `index.html` (hero form), logic in `assets/js/main.js` (`calculateQuote`).
 
 ## Testing Locally

@@ -272,3 +272,14 @@
 127.0.0.1 - - [09/Sep/2025 23:00:59] "GET /assets/img/map.svg HTTP/1.1" 200 -
 127.0.0.1 - - [09/Sep/2025 23:00:59] "GET /assets/img/compliance.svg HTTP/1.1" 200 -
 127.0.0.1 - - [09/Sep/2025 23:00:59] "GET /assets/img/wheelchair.svg HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2025 11:31:26] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2025 11:31:26] "GET /assets/css/styles.css HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2025 11:31:26] "GET /assets/img/20250908_0103_Accessible%20Van%20Assistance_remix_01k4kv774rf2dacfry55frbqvs.png HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2025 11:31:26] "GET /assets/img/logo.png HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2025 11:31:26] "GET /assets/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2025 11:31:26] "GET /assets/img/care.svg HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2025 11:31:26] "GET /assets/img/clinic.svg HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2025 11:31:26] "GET /assets/img/fleet.svg HTTP/1.1" 304 -
+127.0.0.1 - - [10/Sep/2025 11:31:29] "GET /careers.html HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2025 11:31:29] "GET /assets/img/HSMT-Van-Driver-Job-Description.pdf HTTP/1.1" 200 -
+127.0.0.1 - - [10/Sep/2025 11:31:29] "GET /assets/img/Healthy-Start-Medical-Transportation-dba-HST-driver_application.pdf HTTP/1.1" 200 -

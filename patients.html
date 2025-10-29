@@ -17,6 +17,18 @@
     <link rel="icon" type="image/png" href="assets/img/logo.png">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script defer src="assets/js/main.js"></script>
+    <script>
+      // Verify this is the patients page
+      window.addEventListener('DOMContentLoaded', function() {
+        const title = document.getElementById('patients-page-title');
+        const bookForm = document.getElementById('bookForm');
+        if (!title || !bookForm) {
+          console.error('Patients page elements not found!');
+        } else {
+          console.log('✅ Patients page loaded correctly');
+        }
+      });
+    </script>
     <script type="application/ld+json">
     {
   "@context": "https://schema.org",
@@ -42,11 +54,13 @@
     /* Page specific critical styles (optional) */
   </style>
 </head>
-<body>
+<body data-page="patients">
+  <!-- PATIENTS PAGE MARKER -->
+  <div id="page-identifier" style="display: none;" data-page="patients">PATIENTS</div>
   <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="index.html" class="brand">
+        <a href="/index.html" class="brand">
           <img src="assets/img/logo.png" alt="Healthy Start Non‑Emergency Medical Transportation logo" width="36" height="36" />
           <span>Healthy Start Non‑Emergency Medical Transportation</span>
         </a>
@@ -54,8 +68,8 @@
           <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
           <ul id="navMenu" class="nav-menu">
 
-            <li><a class="nav-link" href="patients.html">Patients</a></li>
-            <li><a class="nav-link" href="organizations.html">Organizations</a></li>
+            <li><a class="nav-link" href="/patients.html">Patients</a></li>
+            <li><a class="nav-link" href="/organizations.html">Organizations</a></li>
             <li><a class="nav-link" href="how-it-works.html">How It Works</a></li>
             <li class="has-submenu">
               <button class="submenu-toggle nav-link" aria-haspopup="true" aria-expanded="false">Resources</button>
@@ -74,8 +88,8 @@
           </ul>
         </nav>
         <div class="header-cta">
-          <a class="btn btn-primary" href="patients.html">Book Ride</a>
-          <a class="btn btn-outline" href="organizations.html">Demo</a>
+          <a class="btn btn-primary" href="/patients.html">Book Ride</a>
+          <a class="btn btn-outline" href="/organizations.html">Demo</a>
         </div>
       </div>
       <div class="cta-bar">
@@ -89,8 +103,13 @@
     </header>
   <main id="main">
     
+<!-- ============================================ -->
+<!-- THIS IS THE PATIENTS PAGE - NOT ORGANIZATIONS -->
+<!-- Title: Individuals & Caregivers -->
+<!-- Form: Book a Ride (NOT Request a Demo) -->
+<!-- ============================================ -->
 <section class="section container">
-  <h1>Individuals & Caregivers</h1>
+  <h1 id="patients-page-title">Individuals & Caregivers</h1>
   <p class="lead">Book a ride to your medical appointment with door‑to‑door service and real‑time updates.</p>
   <div class="grid-2">
     <div class="card" id="book">

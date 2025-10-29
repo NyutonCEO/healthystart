@@ -53,57 +53,60 @@
     /* Page specific critical styles (optional) */
   </style>
 </head>
-<body>
+<body data-page="index">
+  <!-- INDEX PAGE MARKER -->
+  <div id="page-identifier" style="display: none;" data-page="index">INDEX</div>
   <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="index.html" class="brand">
-          <img src="assets/img/logo.png" alt="Healthy Start Non‑Emergency Medical Transportation logo" width="36" height="36" />
-          <span>Healthy Start Non‑Emergency Medical Transportation</span>
+        <a href="/index.html" class="brand">
+          <img src="assets/img/logo.png" alt="Healthy Start Non‑Emergency Medical Transportation logo" width="48" height="48" />
+          <span>Healthy Start<span class="brand-tagline">Medical Transportation</span></span>
         </a>
         <nav class="nav" aria-label="Primary">
           <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
           <ul id="navMenu" class="nav-menu">
 
-            <li><a class="nav-link" href="patients.html">Patients</a></li>
-            <li><a class="nav-link" href="organizations.html">Organizations</a></li>
-            <li><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+            <li><a class="nav-link" href="/patients.html">Patients</a></li>
+            <li><a class="nav-link" href="/organizations.html">Organizations</a></li>
+            <li><a class="nav-link" href="/how-it-works.html">How It Works</a></li>
             <li class="has-submenu">
               <button class="submenu-toggle nav-link" aria-haspopup="true" aria-expanded="false">Resources</button>
               <ul class="submenu" role="menu">
-                <li><a class="nav-link" href="faq.html" role="menuitem">FAQ</a></li>
-                <li><a class="nav-link" href="coverage.html" role="menuitem">Coverage</a></li>
-                <li><a class="nav-link" href="compliance.html" role="menuitem">Compliance</a></li>
-                <li><a class="nav-link" href="pricing.html" role="menuitem">Pricing</a></li>
-                <li><a class="nav-link" href="about.html" role="menuitem">About</a></li>
-              <li><a class="nav-link" href="careers.html" role="menuitem">Careers</a></li>
-                <li><a class="nav-link" href="lab-transport.html" role="menuitem">Lab Transport</a></li>
-                <li><a class="nav-link" href="policies.html" role="menuitem">Policies</a></li>
+                <li><a class="nav-link" href="/faq.html" role="menuitem">FAQ</a></li>
+                <li><a class="nav-link" href="/coverage.html" role="menuitem">Coverage</a></li>
+                <li><a class="nav-link" href="/compliance.html" role="menuitem">Compliance</a></li>
+                <li><a class="nav-link" href="/pricing.html" role="menuitem">Pricing</a></li>
+                <li><a class="nav-link" href="/about.html" role="menuitem">About</a></li>
+              <li><a class="nav-link" href="/careers.html" role="menuitem">Careers</a></li>
+                <li><a class="nav-link" href="/lab-transport.html" role="menuitem">Lab Transport</a></li>
+                <li><a class="nav-link" href="/policies.html" role="menuitem">Policies</a></li>
               </ul>
             </li>
-            <li><a class="nav-link" href="contact.html">Contact</a></li>
+            <li><a class="nav-link" href="/contact.html">Contact</a></li>
           </ul>
         </nav>
         <div class="header-cta">
-          <a class="btn btn-primary" href="patients.html">Book Ride</a>
-          <a class="btn btn-outline" href="organizations.html">Demo</a>
+          <button id="themeToggle" class="btn btn-ghost" aria-pressed="false" aria-label="Toggle theme">🌙</button>
+          <a class="btn btn-primary" href="/patients.html">Book Ride</a>
+          <a class="btn btn-outline" href="/organizations.html">Demo</a>
         </div>
       </div>
       <div class="cta-bar">
         <div class="container cta-bar-inner">
           <span><strong>Need a ride?</strong> Call us now: <a href="tel:+12526741812">(252) 674‑1812</a></span>
           <span class="cta-bar-actions">
-            <a class="btn btn-light" href="patients.html#book">Book Online</a>
+            <a class="btn btn-light" href="/patients.html#book">Book Online</a>
           </span>
         </div>
       </div>
     </header>
   <main id="main">
-    <div class="container hero-image-row">
+    <div class="hero-image-row">
       <img class="hero-image" src="assets/img/20250908_0103_Accessible Van Assistance_remix_01k4kv774rf2dacfry55frbqvs.png" alt="Accessible van assistance" decoding="async"/>
     </div>
     
-<section class="hero container">
+<section class="hero container hero-content">
   <div>
     <h1>Healthcare rides that show up—on time, every time.</h1>
     <p class="lead">Healthy Start coordinates non‑emergency medical transportation across North Carolina. Individuals, clinics, and health plans use us for safe, on‑time rides to appointments, dialysis, therapy, and more.</p>
@@ -115,8 +118,8 @@
     </div>
     
     <div style="margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap;">
-      <a class="btn btn-primary" href="patients.html">Book Ride</a>
-      <a class="btn btn-outline" href="organizations.html">Demo</a>
+      <a class="btn btn-primary" href="/patients.html">Book Ride</a>
+      <a class="btn btn-outline" href="/organizations.html">Demo</a>
     </div>
     <div class="kpis" style="margin-top:1rem;">
       <div class="kpi"><strong>97%</strong><span class="muted small">on‑time arrivals (target)</span></div>
@@ -148,14 +151,14 @@
         <div class="row" id="milesRow" hidden>
           <div><label>Miles<input id="miles" class="input" type="number" min="0" step="0.1" placeholder="e.g., 24"></label></div>
         </div>
-        <div class="banner">
-          <div>
-            <strong>Estimated Fare: <span id="quoteResult">$20.00</span></strong>
-            <div class="small" id="quoteNote">Local Wilson roundtrip. Pricing subject to change.</div>
-          </div>
-          <div class="actions"><a class="btn btn-light" href="pricing.html">See pricing</a><a class="btn btn-primary" href="patients.html#book">Book now</a></div>
-        </div>
       </form>
+      <div class="banner">
+        <div>
+          <strong>Estimated Fare: <span id="quoteResult">$20.00</span></strong>
+          <div class="small" id="quoteNote">Local Wilson roundtrip. Pricing subject to change.</div>
+        </div>
+        <div class="actions"><a class="btn btn-light" href="pricing.html">See pricing</a><a class="btn btn-primary" href="/patients.html#book">Book now</a></div>
+      </div>
     </div>
   </div>
 </section>
@@ -174,13 +177,13 @@
         <div class="icon"><img src="assets/img/clinic.svg" alt="" width="40" height="40" loading="lazy" decoding="async"></div>
         <h3>Clinics & Hospitals</h3>
         <p>Self‑serve portal for staff to schedule and monitor rides. Reduce no‑shows and discharge delays.</p>
-        <a class="btn btn-ghost" href="organizations.html">Request a demo →</a>
+        <a class="btn btn-ghost" href="/organizations.html">Request a demo →</a>
       </div>
       <div class="card">
         <div class="icon"><img src="assets/img/fleet.svg" alt="" width="40" height="40" loading="lazy" decoding="async"></div>
         <h3>Health Plans & Brokers</h3>
         <p>Contracted SLAs, EDI‑friendly reporting, and member experience improvements that cut preventable costs.</p>
-        <a class="btn btn-ghost" href="organizations.html#plans">Talk to us →</a>
+        <a class="btn btn-ghost" href="/organizations.html#plans">Talk to us →</a>
       </div>
     </div>
   </div>
@@ -204,8 +207,8 @@
       <strong>Ready to reduce no‑shows and delays?</strong><div class="small">Let’s design the right program for your patients or members.</div>
     </div>
     <div class="actions">
-      <a class="btn btn-light" href="organizations.html">Request a demo</a>
-      <a class="btn btn-primary" href="patients.html">Book a ride</a>
+      <a class="btn btn-light" href="/organizations.html">Request a demo</a>
+      <a class="btn btn-primary" href="/patients.html">Book a ride</a>
     </div>
   </div>
 </section>
@@ -217,6 +220,43 @@
       <div class="card"><div class="icon"><img src="assets/img/compliance.svg" width="40" height="40" alt="" loading="lazy" decoding="async"></div><strong>HIPAA‑conscious</strong><p>Minimal PHI collection on web forms; secure coordination channels.</p></div>
       <div class="card"><div class="icon"><img src="assets/img/wheelchair.svg" width="40" height="40" alt="" loading="lazy" decoding="async"></div><strong>ADA‑aware</strong><p>Wheelchair‑accessible partners and trained drivers.</p></div>
       <div class="card"><div class="icon"><img src="assets/img/map.svg" width="40" height="40" alt="" loading="lazy" decoding="async"></div><strong>Local expertise</strong><p>Optimized routing to cut dead mileage and wait times.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="testimonials">
+  <div class="container">
+    <h2 id="testimonials">What Our Customers Say</h2>
+    <div class="slider-container">
+      <div class="slider-track">
+        <div class="slider-slide">
+          <blockquote class="testimonial">
+            <p>Healthy Start has been a lifesaver for my monthly dialysis appointments. They're always on time and the drivers are professional and caring.</p>
+            <cite>— Mary Johnson, Patient</cite>
+          </blockquote>
+        </div>
+        <div class="slider-slide">
+          <blockquote class="testimonial">
+            <p>Partnering with Healthy Start has significantly reduced our patient no-show rates. Their reliable service and easy coordination make all the difference.</p>
+            <cite>— Dr. Sarah Williams, Greenville Medical Center</cite>
+          </blockquote>
+        </div>
+        <div class="slider-slide">
+          <blockquote class="testimonial">
+            <p>As someone who uses a wheelchair, I appreciate their accessible vehicles and trained staff. It gives me peace of mind knowing I'll get to my appointments safely.</p>
+            <cite>— Robert Martinez, Patient</cite>
+          </blockquote>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button class="slider-btn" data-direction="prev" aria-label="Previous testimonial">‹</button>
+        <div class="slider-nav" role="tablist">
+          <button role="tab" aria-label="Testimonial 1" aria-selected="true"></button>
+          <button role="tab" aria-label="Testimonial 2" aria-selected="false"></button>
+          <button role="tab" aria-label="Testimonial 3" aria-selected="false"></button>
+        </div>
+        <button class="slider-btn" data-direction="next" aria-label="Next testimonial">›</button>
+      </div>
     </div>
   </div>
 </section>
@@ -247,16 +287,16 @@
         <div>
           <h4>Get Started</h4>
           <ul class="list">
-            <li><a href="patients.html">Individuals & Caregivers</a></li>
-            <li><a href="organizations.html">Clinics & Hospitals</a></li>
-            <li><a href="pricing.html">Pricing & Quotes</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/patients.html">Individuals & Caregivers</a></li>
+            <li><a href="/organizations.html">Clinics & Hospitals</a></li>
+            <li><a href="/pricing.html">Pricing & Quotes</a></li>
+            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </div>
       </div>
       <div class="container footer-bottom">
         <div class="small muted">© 2025 Healthy Start Non‑Emergency Medical Transportation. All rights reserved.</div>
-        <div class="small"><a href="patients.html">Patients</a> · <a href="organizations.html">Organizations</a> · <a href="how-it-works.html">How It Works</a> · <a href="coverage.html">Coverage</a> · <a href="pricing.html">Pricing</a> · <a href="faq.html">FAQ</a> · <a href="compliance.html">Compliance</a> · <a href="careers.html">Careers</a> · <a href="contact.html">Contact</a></div>
+        <div class="small"><a href="/patients.html">Patients</a> · <a href="/organizations.html">Organizations</a> · <a href="/how-it-works.html">How It Works</a> · <a href="/coverage.html">Coverage</a> · <a href="/pricing.html">Pricing</a> · <a href="/faq.html">FAQ</a> · <a href="/compliance.html">Compliance</a> · <a href="/careers.html">Careers</a> · <a href="/contact.html">Contact</a></div>
       </div>
     </footer>
 </body>

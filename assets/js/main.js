@@ -70,22 +70,60 @@ function calculateQuote() {
   if (note) note.textContent = 'Out-of-town estimate at $4.15/mile. Minimum fare may apply.';
 }
 
-// Simple form handlers (demo only)
+// Simple form handlers with Formspree submission
 function handleFormSubmit(formId, successId) {
   const form = document.getElementById(formId);
   const success = document.getElementById(successId);
-  if (!form || !success) return;
-  form.addEventListener('submit', (e) => {
+  if (!form) return;
+  
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const data = new FormData(form);
-    // In production, send to your backend or a secure form endpoint
-    console.log(`Submitting ${formId}`, Object.fromEntries(data.entries()));
-    form.reset();
-    success.hidden = false;
-    setTimeout(() => (success.hidden = true), 6000);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    
+    if (submitBtn) {
+      submitBtn.setAttribute('disabled', 'true');
+      submitBtn.textContent = 'Submitting...';
+    }
+    
+    try {
+      const fd = new FormData(form);
+      const res = await fetch(form.action, { 
+        method: 'POST', 
+        body: fd, 
+        headers: { 'Accept': 'application/json' } 
+      });
+      
+      if (res.ok) {
+        form.reset();
+        if (success) {
+          success.hidden = false;
+          setTimeout(() => (success.hidden = true), 6000);
+        }
+      } else {
+        const data = await res.json();
+        if (data.error) {
+          alert('Error: ' + data.error);
+        }
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      alert('Network error. Please try again or call (252) 674‑1812.');
+    } finally {
+      if (submitBtn) {
+        submitBtn.removeAttribute('disabled');
+        submitBtn.textContent = submitBtn.getAttribute('data-original-text') || 'Submit';
+      }
+    }
   });
+  
+  // Store original button text
+  const submitBtn = form?.querySelector('button[type="submit"]');
+  if (submitBtn && !submitBtn.getAttribute('data-original-text')) {
+    submitBtn.setAttribute('data-original-text', submitBtn.textContent);
+  }
 }
 handleFormSubmit('contactForm', 'contactSuccess');
+handleFormSubmit('demoForm', 'demoSuccess');
 
 // Patients: Book form with 24h validation and Formspree submission
 (function initBookForm() {
@@ -183,6 +221,212 @@ handleFormSubmit('contactForm', 'contactSuccess');
       showError('Network error. Please try again, or call (252) 674‑1812.');
     } finally {
       submitBtn?.removeAttribute('disabled');
+    }
+  });
+})();
+
+
+// Theme toggle with localStorage persistence
+(function initThemeToggle() {
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  
+  const key = 'hs-theme';
+  const stored = localStorage.getItem(key);
+  if (stored === 'dark') {
+    root.setAttribute('data-theme', 'dark');
+    btn.textContent = '☀️';
+    btn.setAttribute('aria-pressed', 'true');
+  } else {
+    root.setAttribute('data-theme', 'light');
+    btn.textContent = '🌙';
+    btn.setAttribute('aria-pressed', 'false');
+  }
+  
+  btn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    btn.textContent = next === 'dark' ? '☀️' : '🌙';
+    btn.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
+    localStorage.setItem(key, next);
+  });
+})();
+
+// Scroll-triggered animations with stagger
+(function initScrollAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        
+        // Animate cards in grid with stagger
+        const cards = entry.target.querySelectorAll('.card');
+        cards.forEach((card, i) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, i * 100);
+        });
+        
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  
+  document.querySelectorAll('.section:not(:first-of-type)').forEach(section => {
+    observer.observe(section);
+  });
+})();
+
+// Animated counter
+function animateCounter(element, target, duration = 2000) {
+  
+  const start = 0;
+  const startTime = performance.now();
+  
+  function update(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easeOut = 1 - Math.pow(1 - progress, 3);
+    const current = Math.floor(start + (target - start) * easeOut);
+    
+    if (element && typeof element.textContent === 'string') {
+      const suffix = element.textContent.replace(/[\d,]/g, '');
+      element.textContent = current.toLocaleString() + suffix;
+    }
+    
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  
+  requestAnimationFrame(update);
+}
+
+(function initCounters() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const strong = entry.target.querySelector('strong');
+        if (strong) {
+          const text = strong.textContent || '';
+          const match = text.match(/[\d,]+/);
+          if (match) {
+            const value = parseInt(match[0].replace(/,/g, ''), 10);
+            const suffix = text.replace(/[\d,]/g, '');
+            strong.textContent = '0' + suffix;
+            animateCounter(strong, value);
+          }
+        }
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  document.querySelectorAll('.kpi').forEach(kpi => observer.observe(kpi));
+})();
+
+// Testimonial slider
+(function initSlider() {
+  const container = document.querySelector('.slider-container');
+  const track = document.querySelector('.slider-track');
+  const slides = document.querySelectorAll('.slider-slide');
+  const prevBtn = document.querySelector('.slider-btn[data-direction="prev"]');
+  const nextBtn = document.querySelector('.slider-btn[data-direction="next"]');
+  const nav = document.querySelector('.slider-nav');
+  
+  if (!container || !track || !slides || slides.length === 0) return;
+  
+  let currentIndex = 0;
+  let autoPlayInterval;
+  
+  function goToSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    
+    // Fade out current slide
+    if (slides[currentIndex]) {
+      slides[currentIndex].style.opacity = '0';
+      slides[currentIndex].style.transform = 'scale(0.95)';
+    }
+    
+    currentIndex = index;
+    
+    // Animate slide transition
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    // Fade in new slide with delay
+    setTimeout(() => {
+      if (slides[currentIndex]) {
+        slides[currentIndex].style.opacity = '1';
+        slides[currentIndex].style.transform = 'scale(1)';
+        slides[currentIndex].style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      }
+    }, 100);
+    
+    if (nav) {
+      nav.querySelectorAll('button').forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+        dot.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+      });
+    }
+    
+    if (prevBtn) prevBtn.disabled = currentIndex === 0;
+    if (nextBtn) nextBtn.disabled = currentIndex === slides.length - 1;
+  }
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+  }
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+  }
+  
+  if (nav) {
+    nav.querySelectorAll('button').forEach((btn, i) => {
+      btn.addEventListener('click', () => goToSlide(i));
+    });
+  }
+  
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 5000);
+  }
+  
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+    }
+  }
+  
+  container.addEventListener('mouseenter', stopAutoPlay);
+  container.addEventListener('mouseleave', startAutoPlay);
+  
+  goToSlide(0);
+  startAutoPlay();
+})();
+
+// Parallax effect
+(function initParallax() {
+  const heroImage = document.querySelector('.hero-image');
+  if (!heroImage) return;
+  
+  let ticking = false;
+  
+  function updateParallax() {
+    const scrolled = window.scrollY;
+    const parallax = scrolled * 0.3;
+    heroImage.style.transform = `translateY(${parallax}px)`;
+    ticking = false;
+  }
+  
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
     }
   });
 })();

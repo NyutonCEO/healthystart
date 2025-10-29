@@ -5,6 +5,10 @@
   <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="robots" content="noindex, nofollow" />
     <meta name="description" content="Partner with Healthy Start to coordinate non‑emergency medical transportation and reduce no‑shows.">
     <meta property="og:title" content="For Clinics, Hospitals & Care Managers">
     <meta property="og:description" content="Partner with Healthy Start to coordinate non‑emergency medical transportation and reduce no‑shows.">
@@ -17,6 +21,30 @@
     <link rel="icon" type="image/png" href="assets/img/logo.png">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script defer src="assets/js/main.js"></script>
+    <script>
+      // Force organizations page verification and redirect if wrong
+      (function() {
+        if (window.location.pathname.includes('organizations') || window.location.pathname === '/organizations') {
+          window.addEventListener('DOMContentLoaded', function() {
+            const banner = document.getElementById('organizations-page-banner');
+            const demoForm = document.getElementById('demoForm');
+            if (!banner || !demoForm) {
+              console.error('❌ WRONG PAGE: Organizations page elements not found!');
+              console.error('Current URL:', window.location.href);
+              console.error('Banner found:', !!banner);
+              console.error('Demo form found:', !!demoForm);
+              // Force reload to correct page
+              if (!banner) {
+                window.location.href = '/organizations.html';
+              }
+            } else {
+              console.log('✅ Organizations page loaded correctly');
+              document.body.setAttribute('data-page', 'organizations');
+            }
+          });
+        }
+      })();
+    </script>
     <script type="application/ld+json">
     {
   "@context": "https://schema.org",
@@ -42,20 +70,40 @@
     /* Page specific critical styles (optional) */
   </style>
 </head>
-<body>
+<body data-page="organizations">
+  <!-- ORGANIZATIONS PAGE MARKER - DO NOT REMOVE -->
+  <div id="page-identifier" style="display: none;" data-page="organizations">ORGANIZATIONS</div>
+  <!-- IMMEDIATE VISUAL CHECK -->
+  <script>
+    (function() {
+      // Check immediately before DOM loads
+      if (!document.getElementById('organizations-page-banner')) {
+        const check = setInterval(function() {
+          if (document.getElementById('organizations-page-banner')) {
+            clearInterval(check);
+          } else if (document.body && document.body.innerHTML.includes('Healthcare rides that show up')) {
+            console.error('WRONG PAGE DETECTED! Redirecting...');
+            window.location.replace('/organizations.html?v=' + Date.now());
+            clearInterval(check);
+          }
+        }, 50);
+        setTimeout(function() { clearInterval(check); }, 2000);
+      }
+    })();
+  </script>
   <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="index.html" class="brand">
-          <img src="assets/img/logo.png" alt="Healthy Start Non‑Emergency Medical Transportation logo" width="36" height="36" />
-          <span>Healthy Start Non‑Emergency Medical Transportation</span>
+        <a href="/index.html" class="brand">
+          <img src="assets/img/logo.png" alt="Healthy Start Non‑Emergency Medical Transportation logo" width="48" height="48" />
+          <span>Healthy Start<span class="brand-tagline">Medical Transportation</span></span>
         </a>
         <nav class="nav" aria-label="Primary">
           <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
           <ul id="navMenu" class="nav-menu">
 
-            <li><a class="nav-link" href="patients.html">Patients</a></li>
-            <li><a class="nav-link" href="organizations.html">Organizations</a></li>
+            <li><a class="nav-link" href="/patients.html">Patients</a></li>
+            <li><a class="nav-link" href="/organizations.html">Organizations</a></li>
             <li><a class="nav-link" href="how-it-works.html">How It Works</a></li>
             <li class="has-submenu">
               <button class="submenu-toggle nav-link" aria-haspopup="true" aria-expanded="false">Resources</button>
@@ -74,27 +122,51 @@
           </ul>
         </nav>
         <div class="header-cta">
-          <a class="btn btn-primary" href="patients.html">Book Ride</a>
-          <a class="btn btn-outline" href="organizations.html">Demo</a>
+          <button id="themeToggle" class="btn btn-ghost" aria-pressed="false" aria-label="Toggle theme">🌙</button>
+          <a class="btn btn-primary" href="/patients.html">Book Ride</a>
+          <a class="btn btn-outline" href="/organizations.html">Demo</a>
         </div>
       </div>
       <div class="cta-bar">
         <div class="container cta-bar-inner">
-          <span><strong>Need a ride?</strong> Call us now: <a href="tel:+12526741812">(252) 674‑1812</a></span>
+          <span><strong>Partner with us</strong> Contact our sales team: <a href="tel:+12526741812">(252) 674‑1812</a></span>
           <span class="cta-bar-actions">
-            <a class="btn btn-light" href="patients.html#book">Book Online</a>
+            <a class="btn btn-light" href="contact.html">Contact Sales</a>
           </span>
         </div>
       </div>
     </header>
   <main id="main">
     
-<section class="section container">
-  <h1>For Clinics, Hospitals & Care Managers</h1>
-  <p class="lead">Reduce no‑shows, accelerate discharges, and improve patient experience with coordinated non‑emergency medical transportation.</p>
-  <div class="grid-2">
-    <div class="card">
-      <h2>Request a Demo</h2>
+<!-- ============================================ -->
+<!-- THIS IS THE ORGANIZATIONS PAGE - NOT INDEX OR PATIENTS -->
+<!-- Title: For Clinics, Hospitals & Care Managers -->
+<!-- Form: Request a Demo (NOT Book a Ride) -->
+<!-- If you see "Healthcare rides that show up" you're on the wrong page! -->
+<!-- ============================================ -->
+<div id="organizations-page-banner" style="background: linear-gradient(135deg, #0b2c5f, #0e4aa7, #8b5cf6); color: white; padding: 2.5rem 0; text-align: center; margin-bottom: 0; position: relative; z-index: 1;">
+  <div class="container">
+    <div style="font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.9; margin-bottom: 0.75rem; font-weight: 700;">🏥 Healthcare Organizations Portal</div>
+    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">For Clinics, Hospitals & Care Managers</div>
+    <div style="font-size: 1.25rem; opacity: 0.95; margin-top: 0.75rem; font-weight: 500;">Request a demo to coordinate transportation for your patients</div>
+    <div style="font-size: 0.875rem; margin-top: 1rem; opacity: 0.8; font-style: italic;">Partner with us to reduce no-shows and improve patient outcomes</div>
+  </div>
+</div>
+
+<section class="section" style="background: linear-gradient(135deg, rgba(11, 44, 95, 0.03), rgba(139, 92, 246, 0.03)); padding-top: 3rem; animation: fadeInDown 0.8s ease-out;">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 3rem;">
+      <p class="lead" style="font-size: 1.25rem; color: #374151; max-width: 800px; margin: 0 auto 2rem;">Partner with Healthy Start to coordinate non‑emergency medical transportation and reduce no‑shows. Our platform helps healthcare organizations streamline ride coordination, improve patient outcomes, and reduce administrative burden.</p>
+    </div>
+  <div class="grid-2" style="max-width: 1200px; margin: 0 auto;">
+    <div class="card" style="border: 2px solid rgba(59, 130, 246, 0.3); box-shadow: 0 20px 60px rgba(11, 44, 95, 0.15); background: #ffffff; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--blue), var(--blue-2), var(--purple));"></div>
+      <div style="padding: 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+          <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--blue), var(--purple)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; font-weight: bold;">📋</div>
+          <h2 style="background: linear-gradient(135deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0; font-size: 1.75rem;">Request a Demo</h2>
+        </div>
+        <p class="small muted" style="margin-bottom: 1.5rem; line-height: 1.6;">Fill out this form to schedule a personalized demo of our transportation coordination platform designed specifically for healthcare organizations.</p>
       <form id="demoForm" class="form" action="https://formspree.io/f/mvgblkgr" method="POST" accept-charset="UTF-8">
         <input type="hidden" name="_subject" value="New Organization Demo Request">
         <div class="row">
@@ -119,17 +191,34 @@
           </select></label></div>
         </div>
         <label>Notes<textarea name="notes" rows="3" placeholder="Counties, payers, preferred scheduling workflow, etc."></textarea></label>
-        <button class="btn btn-primary" type="submit">Request Demo</button>
-        <div id="demoSuccess" class="small" hidden>Thanks! We’ll reach out to schedule a walk‑through.</div>
+        <button class="btn btn-primary" type="submit" style="width: 100%; padding: 0.875rem; font-size: 1.1rem; font-weight: 700;">Request Demo</button>
+        <div id="demoSuccess" class="small" style="color: var(--blue); font-weight: 600; margin-top: 0.5rem; padding: 0.75rem; background: #dbeafe; border-radius: 8px; text-align: center;" hidden>✓ Thanks! We'll reach out to schedule a walk‑through.</div>
       </form>
+      </div>
+      </div>
     </div>
-    <div class="card">
-      <h2>Why Healthy Start</h2>
-      <ul>
-        <li><strong>On‑time pickup SLAs</strong> to reduce missed visits</li>
-        <li><strong>Flexible workflows</strong> — phone, web form, or file upload</li>
-        <li><strong>Real‑time status</strong> for staff and caregivers</li>
-        <li><strong>Billing alignment</strong> per payer & broker requirements</li>
+    <div class="card" style="background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%); border: 1px solid rgba(59, 130, 246, 0.1);">
+      <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, var(--accent), var(--accent-secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">⭐</div>
+        <h2 style="background: linear-gradient(135deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0; font-size: 1.75rem;">Why Healthy Start</h2>
+      </div>
+      <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem 0;">
+        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: start; gap: 0.75rem;">
+          <span style="color: var(--blue); font-size: 1.5rem;">✓</span>
+          <div><strong>On‑time pickup SLAs</strong> to reduce missed visits</div>
+        </li>
+        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: start; gap: 0.75rem;">
+          <span style="color: var(--blue); font-size: 1.5rem;">✓</span>
+          <div><strong>Flexible workflows</strong> — phone, web form, or file upload</div>
+        </li>
+        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: start; gap: 0.75rem;">
+          <span style="color: var(--blue); font-size: 1.5rem;">✓</span>
+          <div><strong>Real‑time status</strong> for staff and caregivers</div>
+        </li>
+        <li style="padding: 0.75rem 0; display: flex; align-items: start; gap: 0.75rem;">
+          <span style="color: var(--blue); font-size: 1.5rem;">✓</span>
+          <div><strong>Billing alignment</strong> per payer & broker requirements</div>
+        </li>
       </ul>
       <table class="table small">
         <thead><tr><th>Capability</th><th>Benefit</th></tr></thead>
@@ -141,8 +230,9 @@
         </tbody>
       </table>
       <div id="plans"></div>
-      <img src="assets/img/20250907_2156_Healthcare Meeting Agreement_remix_01k4kggwfhe5zbtkncpa9x3d11.png" alt="Healthcare staff meeting and agreement" style="width:100%; height:auto; border-radius: var(--radius); border:1px solid var(--border); margin-top:.75rem;" loading="lazy" decoding="async" />
+      <img src="assets/img/20250907_2156_Healthcare Meeting Agreement_remix_01k4kggwfhe5zbtkncpa9x3d11.png" alt="Healthcare staff meeting and agreement" style="width:100%; height:auto; border-radius: var(--radius); border:2px solid rgba(59, 130, 246, 0.2); margin-top:1.5rem; box-shadow: 0 10px 30px rgba(11, 44, 95, 0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" loading="lazy" decoding="async" />
     </div>
+  </div>
   </div>
 </section>
 
@@ -179,8 +269,8 @@
         <div>
           <h4>Get Started</h4>
           <ul class="list">
-            <li><a href="patients.html">Individuals & Caregivers</a></li>
-            <li><a href="organizations.html">Clinics & Hospitals</a></li>
+            <li><a href="/patients.html">Individuals & Caregivers</a></li>
+            <li><a href="/organizations.html">Clinics & Hospitals</a></li>
             <li><a href="pricing.html">Pricing & Quotes</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -188,7 +278,7 @@
       </div>
       <div class="container footer-bottom">
         <div class="small muted">© 2025 Healthy Start Non‑Emergency Medical Transportation. All rights reserved.</div>
-        <div class="small"><a href="patients.html">Patients</a> · <a href="organizations.html">Organizations</a> · <a href="how-it-works.html">How It Works</a> · <a href="coverage.html">Coverage</a> · <a href="pricing.html">Pricing</a> · <a href="faq.html">FAQ</a> · <a href="compliance.html">Compliance</a> · <a href="careers.html">Careers</a> · <a href="contact.html">Contact</a></div>
+        <div class="small"><a href="/patients.html">Patients</a> · <a href="/organizations.html">Organizations</a> · <a href="/how-it-works.html">How It Works</a> · <a href="/coverage.html">Coverage</a> · <a href="/pricing.html">Pricing</a> · <a href="/faq.html">FAQ</a> · <a href="/compliance.html">Compliance</a> · <a href="/careers.html">Careers</a> · <a href="/contact.html">Contact</a></div>
       </div>
     </footer>
 </body>

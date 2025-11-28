@@ -24,6 +24,15 @@
     <link rel="canonical" href="https://healthystartnc.com/">
     <link rel="icon" type="image/png" href="assets/img/logo.png">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Google Places API (optional - only if using client-side method) -->
+    <!-- Uncomment and add your API key if using client-side Google Reviews -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places" async defer></script> -->
+    <!-- Configuration for Google Reviews (optional) -->
+    <script>
+      // Uncomment and configure if using client-side Google Reviews
+      // window.GOOGLE_PLACE_ID = 'YOUR_PLACE_ID';
+      // window.GOOGLE_API_KEY = 'YOUR_API_KEY';
+    </script>
     <script defer src="assets/js/main.js"></script>
     <script type="application/ld+json">
     {
@@ -128,6 +137,46 @@
       <a class="btn btn-primary" href="/patients.html">Book Ride</a>
       <a class="btn btn-outline" href="/organizations.html">Demo</a>
     </div>
+    
+    <!-- Trust Badges in Hero -->
+    <div class="trust-badges-hero" style="margin-top: 1.5rem;">
+      <div class="trust-badge-item">
+        <svg class="trust-badge-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>HIPAA Compliant</span>
+      </div>
+      <div class="trust-badge-item">
+        <svg class="trust-badge-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>ADA Compliant</span>
+      </div>
+      <div class="trust-badge-item">
+        <svg class="trust-badge-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Fully Insured</span>
+      </div>
+      <div class="trust-badge-item">
+        <svg class="trust-badge-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Background-Checked Drivers</span>
+      </div>
+    </div>
+    
+    <!-- Trust Points -->
+    <ul class="trust-points" style="margin-top: 1rem; list-style: none; padding: 0;">
+      <li>✓ HIPAA-compliant medical transport</li>
+      <li>✓ ADA-accessible vehicles available</li>
+      <li>✓ Fully insured & background-checked drivers</li>
+      <li>✓ Same-day & next-day scheduling</li>
+    </ul>
     <div class="kpis" style="margin-top:1rem;">
       <div class="kpi"><strong>97%</strong><span class="muted small">on‑time arrivals (target)</span></div>
       <div class="kpi"><strong>Mon–Sat</strong><span class="muted small">rides; Sun by reservation</span></div>
@@ -200,9 +249,24 @@
   <div class="container">
     <h2 id="how">How it works</h2>
     <div class="grid-3">
-      <div class="card"><strong>1. Request</strong><p>Patients, caregivers, or staff provide pickup, drop‑off, and appointment time.</p></div>
-      <div class="card"><strong>2. Match</strong><p>We assign the right vehicle (standard, wheelchair) and confirm ETA.</p></div>
-      <div class="card"><strong>3. Ride</strong><p>On‑time pickup and drop‑off with status updates. Billing routed per payer.</p></div>
+      <div class="card how-it-works-card">
+        <div class="how-it-works-number">1</div>
+        <h3>Tell Us What You Need</h3>
+        <p>Patients, caregivers, or providers submit trip details, including pickup, drop-off, appointment time, and mobility requirements. Same-day and next-day options are available.</p>
+        <div class="how-it-works-icon">📋</div>
+      </div>
+      <div class="card how-it-works-card">
+        <div class="how-it-works-number">2</div>
+        <h3>We Prepare for You</h3>
+        <p>We deploy an appropriate vehicle (ambulatory or wheelchair) and a compliant, vetted driver. ETAs and confirmations are sent directly to the patient or clinic.</p>
+        <div class="how-it-works-icon">🚗</div>
+      </div>
+      <div class="card how-it-works-card">
+        <div class="how-it-works-number">3</div>
+        <h3>Transport & Billing</h3>
+        <p>We provide punctual, door-to-door transportation with live ride tracking. Billing is coordinated per payer or facility to streamline operations.</p>
+        <div class="how-it-works-icon">💳</div>
+      </div>
     </div>
 
   </div>
@@ -216,6 +280,33 @@
     <div class="actions">
       <a class="btn btn-light" href="/organizations.html">Request a demo</a>
       <a class="btn btn-primary" href="/patients.html">Book a ride</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="safety">
+  <div class="container">
+    <h2 id="safety">Safety & Compliance</h2>
+    <div class="safety-snapshot">
+      <div class="safety-snapshot-image">
+        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="safety-snapshot-content">
+        <ul class="safety-bullets">
+          <li>Comprehensive background checks for all drivers</li>
+          <li>40+ hours of medical transport training per driver</li>
+          <li>Vehicle sanitation protocols after every ride</li>
+          <li>Real-time GPS tracking on all trips</li>
+          <li>Fully licensed and insured fleet</li>
+        </ul>
+        <a href="assets/docs/compliance-documentation.html" class="btn btn-primary" target="_blank" rel="noopener noreferrer" style="margin-top: 1rem; display: inline-block;">
+          View Full Compliance Documentation
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -234,35 +325,50 @@
 <section class="section" aria-labelledby="testimonials">
   <div class="container">
     <h2 id="testimonials">What Our Customers Say</h2>
-    <div class="slider-container">
-      <div class="slider-track">
-        <div class="slider-slide">
-          <blockquote class="testimonial">
-            <p>Healthy Start has been a lifesaver for my monthly dialysis appointments. They're always on time and the drivers are professional and caring.</p>
-            <cite>— Mary Johnson, Patient</cite>
-          </blockquote>
+    <div id="testimonials-container">
+      <div class="slider-container">
+        <div class="slider-track" id="testimonials-track">
+          <!-- Google Reviews will be loaded here -->
+          <div class="slider-slide">
+            <blockquote class="testimonial">
+              <div class="testimonial-rating">
+                <span class="stars">★★★★★</span>
+              </div>
+              <p>Healthy Start has been a lifesaver for my monthly dialysis appointments. They're always on time and the drivers are professional and caring.</p>
+              <cite>— Mary Johnson, Patient</cite>
+            </blockquote>
+          </div>
+          <div class="slider-slide">
+            <blockquote class="testimonial">
+              <div class="testimonial-rating">
+                <span class="stars">★★★★★</span>
+              </div>
+              <p>Partnering with Healthy Start has significantly reduced our patient no-show rates. Their reliable service and easy coordination make all the difference.</p>
+              <cite>— Dr. Sarah Williams, Greenville Medical Center</cite>
+            </blockquote>
+          </div>
+          <div class="slider-slide">
+            <blockquote class="testimonial">
+              <div class="testimonial-rating">
+                <span class="stars">★★★★★</span>
+              </div>
+              <p>As someone who uses a wheelchair, I appreciate their accessible vehicles and trained staff. It gives me peace of mind knowing I'll get to my appointments safely.</p>
+              <cite>— Robert Martinez, Patient</cite>
+            </blockquote>
+          </div>
         </div>
-        <div class="slider-slide">
-          <blockquote class="testimonial">
-            <p>Partnering with Healthy Start has significantly reduced our patient no-show rates. Their reliable service and easy coordination make all the difference.</p>
-            <cite>— Dr. Sarah Williams, Greenville Medical Center</cite>
-          </blockquote>
-        </div>
-        <div class="slider-slide">
-          <blockquote class="testimonial">
-            <p>As someone who uses a wheelchair, I appreciate their accessible vehicles and trained staff. It gives me peace of mind knowing I'll get to my appointments safely.</p>
-            <cite>— Robert Martinez, Patient</cite>
-          </blockquote>
+        <div class="slider-controls">
+          <button class="slider-btn" data-direction="prev" aria-label="Previous testimonial">‹</button>
+          <div class="slider-nav" role="tablist" id="testimonials-nav">
+            <!-- Navigation dots will be generated dynamically -->
+          </div>
+          <button class="slider-btn" data-direction="next" aria-label="Next testimonial">›</button>
         </div>
       </div>
-      <div class="slider-controls">
-        <button class="slider-btn" data-direction="prev" aria-label="Previous testimonial">‹</button>
-        <div class="slider-nav" role="tablist">
-          <button role="tab" aria-label="Testimonial 1" aria-selected="true"></button>
-          <button role="tab" aria-label="Testimonial 2" aria-selected="false"></button>
-          <button role="tab" aria-label="Testimonial 3" aria-selected="false"></button>
-        </div>
-        <button class="slider-btn" data-direction="next" aria-label="Next testimonial">›</button>
+      <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="https://www.google.com/maps/place/Healthy+Start+Non-Emergency+Medical+Transportation" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          See all reviews on Google →
+        </a>
       </div>
     </div>
   </div>
@@ -281,6 +387,38 @@
             </div>
           </div>
           <p class="small muted">Reliable, compassionate rides for medical appointments, dialysis, physical therapy, and more. HIPAA-conscious processes and ADA-aware vehicle partners.</p>
+          
+          <!-- Trust Badges in Footer -->
+          <div class="trust-badges-footer" style="margin-top: 1.5rem;">
+            <div class="trust-badge-item-footer">
+              <svg class="trust-badge-icon-footer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>HIPAA Compliant</span>
+            </div>
+            <div class="trust-badge-item-footer">
+              <svg class="trust-badge-icon-footer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>ADA Compliant</span>
+            </div>
+            <div class="trust-badge-item-footer">
+              <svg class="trust-badge-icon-footer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Fully Insured</span>
+            </div>
+            <div class="trust-badge-item-footer">
+              <svg class="trust-badge-icon-footer" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Background-Checked</span>
+            </div>
+          </div>
         </div>
         <div>
           <h4>Company</h4>

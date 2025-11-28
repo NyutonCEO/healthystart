@@ -328,7 +328,7 @@ function animateCounter(element, target, duration = 2000) {
   document.querySelectorAll('.kpi').forEach(kpi => observer.observe(kpi));
 })();
 
-// Testimonial slider
+// Testimonial slider (only initialize if not already handled by Google Reviews)
 (function initSlider() {
   const container = document.querySelector('.slider-container');
   const track = document.querySelector('.slider-track');
@@ -336,8 +336,11 @@ function animateCounter(element, target, duration = 2000) {
   const prevBtn = document.querySelector('.slider-btn[data-direction="prev"]');
   const nextBtn = document.querySelector('.slider-btn[data-direction="next"]');
   const nav = document.querySelector('.slider-nav');
-  
+
   if (!container || !track || !slides || slides.length === 0) return;
+  
+  // Skip if this is the testimonials section (handled by Google Reviews)
+  if (container.closest('#testimonials-container')) return;
   
   let currentIndex = 0;
   let autoPlayInterval;
@@ -442,3 +445,241 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
+
+// Google Reviews Integration
+(function initGoogleReviews() {
+  const track = document.getElementById('testimonials-track');
+  const nav = document.getElementById('testimonials-nav');
+  if (!track || !nav) return;
+
+  // Configuration - These should be set via environment variables or server-side
+  // For now, using placeholder values that need to be configured
+  const GOOGLE_PLACE_ID = window.GOOGLE_PLACE_ID || '';
+  const GOOGLE_API_KEY = window.GOOGLE_API_KEY || '';
+
+  // Fallback testimonials if API fails
+  const fallbackTestimonials = [
+    {
+      rating: 5,
+      text: "Healthy Start has been a lifesaver for my monthly dialysis appointments. They're always on time and the drivers are professional and caring.",
+      author: "Mary Johnson",
+      location: "Patient"
+    },
+    {
+      rating: 5,
+      text: "Partnering with Healthy Start has significantly reduced our patient no-show rates. Their reliable service and easy coordination make all the difference.",
+      author: "Dr. Sarah Williams",
+      location: "Greenville Medical Center"
+    },
+    {
+      rating: 5,
+      text: "As someone who uses a wheelchair, I appreciate their accessible vehicles and trained staff. It gives me peace of mind knowing I'll get to my appointments safely.",
+      author: "Robert Martinez",
+      location: "Patient"
+    }
+  ];
+
+  function formatReviewName(name) {
+    if (!name) return 'Anonymous';
+    const parts = name.trim().split(' ');
+    if (parts.length === 1) return parts[0];
+    return parts[0] + ' ' + parts[parts.length - 1].charAt(0) + '.';
+  }
+
+  function formatStars(rating) {
+    const fullStars = Math.floor(rating);
+    const stars = '★'.repeat(fullStars) + '☆'.repeat(5 - fullStars);
+    return stars;
+  }
+
+  function createTestimonialSlide(review) {
+    const slide = document.createElement('div');
+    slide.className = 'slider-slide';
+    slide.innerHTML = `
+      <blockquote class="testimonial">
+        <div class="testimonial-rating">
+          <span class="stars">${formatStars(review.rating)}</span>
+        </div>
+        <p>${review.text}</p>
+        <cite>— ${formatReviewName(review.author)}${review.location ? ', ' + review.location : ''}</cite>
+      </blockquote>
+    `;
+    return slide;
+  }
+
+  function renderTestimonials(reviews) {
+    // Clear existing slides (except fallbacks if no reviews)
+    const existingSlides = track.querySelectorAll('.slider-slide');
+    existingSlides.forEach(slide => slide.remove());
+
+    // Add new slides
+    reviews.forEach(review => {
+      track.appendChild(createTestimonialSlide(review));
+    });
+
+    // Update navigation dots
+    nav.innerHTML = '';
+    for (let i = 0; i < reviews.length; i++) {
+      const dot = document.createElement('button');
+      dot.setAttribute('role', 'tab');
+      dot.setAttribute('aria-label', `Testimonial ${i + 1}`);
+      dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      if (i === 0) dot.classList.add('active');
+      nav.appendChild(dot);
+    }
+
+    // Reinitialize slider with new slides
+    initTestimonialsSlider();
+  }
+
+  function initTestimonialsSlider() {
+    const container = document.querySelector('.slider-container');
+    const slides = track.querySelectorAll('.slider-slide');
+    const prevBtn = document.querySelector('.slider-btn[data-direction="prev"]');
+    const nextBtn = document.querySelector('.slider-btn[data-direction="next"]');
+    const navButtons = nav.querySelectorAll('button');
+
+    if (!container || !track || !slides || slides.length === 0) return;
+
+    let currentIndex = 0;
+    let autoPlayInterval;
+
+    function goToSlide(index) {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+
+      if (slides[currentIndex]) {
+        slides[currentIndex].style.opacity = '0';
+        slides[currentIndex].style.transform = 'scale(0.95)';
+      }
+
+      currentIndex = index;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      setTimeout(() => {
+        if (slides[currentIndex]) {
+          slides[currentIndex].style.opacity = '1';
+          slides[currentIndex].style.transform = 'scale(1)';
+        }
+      }, 100);
+
+      navButtons.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+        dot.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+      });
+
+      if (prevBtn) prevBtn.disabled = false;
+      if (nextBtn) nextBtn.disabled = false;
+    }
+
+    // Remove old event listeners by cloning and replacing
+    const newPrevBtn = prevBtn?.cloneNode(true);
+    const newNextBtn = nextBtn?.cloneNode(true);
+    if (prevBtn && newPrevBtn) {
+      prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+      newPrevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    }
+    if (nextBtn && newNextBtn) {
+      nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+      newNextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+    }
+
+    navButtons.forEach((btn, i) => {
+      const newBtn = btn.cloneNode(true);
+      btn.parentNode.replaceChild(newBtn, btn);
+      newBtn.addEventListener('click', () => goToSlide(i));
+    });
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayInterval = setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, 5000);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+      }
+    }
+
+    if (container) {
+      container.addEventListener('mouseenter', stopAutoPlay);
+      container.addEventListener('mouseleave', startAutoPlay);
+    }
+
+    goToSlide(0);
+    startAutoPlay();
+  }
+
+  // Fetch Google Reviews - Try multiple methods
+  async function fetchGoogleReviews() {
+    // Method 1: Try server-side API endpoint (recommended)
+    if (GOOGLE_PLACE_ID) {
+      try {
+        const response = await fetch(`/api/google-reviews?place_id=${GOOGLE_PLACE_ID}`, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data.reviews && data.reviews.length > 0) {
+            const formattedReviews = data.reviews.slice(0, 10).map(review => ({
+              rating: review.rating || 5,
+              text: review.text || '',
+              author: review.author_name || 'Anonymous',
+              location: null,
+              date: review.relative_time_description || ''
+            }));
+            renderTestimonials(formattedReviews);
+            return;
+          }
+        }
+      } catch (error) {
+        console.log('Server-side API not available, trying client-side method...', error);
+      }
+    }
+
+    // Method 2: Try Google Places JavaScript API (if loaded)
+    if (GOOGLE_PLACE_ID && GOOGLE_API_KEY && typeof google !== 'undefined' && google.maps && google.maps.places) {
+      try {
+        const service = new google.maps.places.PlacesService(document.createElement('div'));
+        service.getDetails({
+          placeId: GOOGLE_PLACE_ID,
+          fields: ['name', 'rating', 'reviews', 'user_ratings_total']
+        }, (place, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK && place && place.reviews) {
+            const formattedReviews = place.reviews.slice(0, 10).map(review => ({
+              rating: review.rating || 5,
+              text: review.text || '',
+              author: review.author_name || 'Anonymous',
+              location: null,
+              date: review.relative_time_description || ''
+            }));
+            renderTestimonials(formattedReviews);
+            return;
+          }
+          // If this method fails, fall through to fallback
+          renderTestimonials(fallbackTestimonials);
+        });
+        return; // Don't fall through immediately
+      } catch (error) {
+        console.error('Error using Google Places JavaScript API:', error);
+      }
+    }
+
+    // Fallback to default testimonials
+    console.log('Google Reviews: API credentials not configured or API unavailable. Using fallback testimonials.');
+    renderTestimonials(fallbackTestimonials);
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', fetchGoogleReviews);
+  } else {
+    fetchGoogleReviews();
+  }
+})();

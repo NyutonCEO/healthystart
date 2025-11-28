@@ -945,3 +945,210 @@ textarea:focus {
   .hero-card .banner .actions { justify-content: stretch; }
   .hero-card .banner .actions .btn { flex: 1 1 auto; text-align: center; }
 }
+
+/* Trust Badges */
+.trust-badges-hero {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 0;
+}
+
+.trust-badge-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--blue);
+  transition: all 0.3s ease;
+}
+
+.trust-badge-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
+}
+
+.trust-badge-icon {
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+.trust-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.trust-points li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding: 0.25rem 0;
+}
+
+.trust-points li::before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+}
+
+/* Footer Trust Badges */
+.trust-badges-footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.trust-badge-item-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.trust-badge-icon-footer {
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .trust-badges-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .trust-badges-footer {
+    grid-template-columns: 1fr;
+  }
+  .trust-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* How It Works Enhanced */
+.how-it-works-card {
+  position: relative;
+  text-align: center;
+  padding: 2rem 1.5rem;
+}
+
+.how-it-works-number {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-2));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(11, 44, 95, 0.3);
+  z-index: 1;
+}
+
+.how-it-works-card h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.how-it-works-icon {
+  font-size: 3rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+/* Safety Snapshot */
+.safety-snapshot {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: start;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  border-radius: var(--radius);
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.safety-snapshot-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+  border-radius: 16px;
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+.safety-snapshot-content {
+  flex: 1;
+}
+
+.safety-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.safety-bullets li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.safety-bullets li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 900px) {
+  .safety-snapshot {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .safety-snapshot-image {
+    margin: 0 auto;
+  }
+}
+
+/* Testimonials Enhanced */
+.testimonial-rating {
+  margin-bottom: 0.75rem;
+}
+
+.stars {
+  color: #fbbf24;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+}

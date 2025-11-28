@@ -1,0 +1,46 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build files
+dist/
+build/
+*.map
+
+# API keys (never commit)
+*.key
+secrets.json
+config.js
+
+# Compliance docs (if sensitive)
+# Uncomment if compliance docs should not be in repo
+# assets/docs/compliance-documentation.*
+

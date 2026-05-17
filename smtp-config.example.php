@@ -9,4 +9,5 @@ return [
     'to_email' => 'nyutonllc@protonmail.com',
     'to_name' => 'Nyuton LLC',
     'timeout' => 20,
+    'diagnostic_token' => 'REPLACE_WITH_LONG_RANDOM_TOKEN',
 ];

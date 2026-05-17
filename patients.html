@@ -122,8 +122,10 @@
   <div class="grid-2">
     <div class="card" id="book">
       <h2>Book a Ride</h2>
-      <form id="bookForm" class="form" action="https://formspree.io/f/meolnaoq" method="POST" accept-charset="UTF-8">
+      <form id="bookForm" class="form" action="send-contact.php" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="form_type" value="ride">
         <input type="hidden" name="_subject" value="New Ride Request from Patients Page">
+        <input type="text" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute; left:-9999px;">
         <div class="row">
           <div><label>Full Name<input class="input" name="name" required placeholder="Jane Smith" autocomplete="name"></label></div>
           <div><label>Phone<input class="input" name="phone" type="tel" required placeholder="(252) 674‑1812" autocomplete="tel"></label></div>

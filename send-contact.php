@@ -14,35 +14,16 @@ if (!empty($_POST['_honey'] ?? '')) {
 }
 
 $config = load_config();
-
-$name = clean_text((string)($_POST['name'] ?? ''), 120);
-$email = clean_text((string)($_POST['email'] ?? ''), 254);
-$message = clean_text((string)($_POST['message'] ?? ''), 4000);
-
-if ($name === '' || $email === '' || $message === '') {
-    respond(422, ['error' => 'Please complete all required fields.']);
-}
-
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    respond(422, ['error' => 'Please enter a valid email address.']);
-}
-
-$subject = 'Healthy Start website contact form';
-$body = implode("\r\n", [
-    'New contact form submission',
-    '',
-    'Name: ' . $name,
-    'Email: ' . $email,
-    '',
-    'Message:',
-    $message,
-    '',
-    'Submitted: ' . gmdate('Y-m-d H:i:s') . ' UTC',
-    'Source IP: ' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown'),
-]);
+$submission = build_submission($_POST);
 
 try {
-    smtp_send($config, $subject, $body, $email, $name);
+    smtp_send(
+        $config,
+        $submission['subject'],
+        $submission['body'],
+        $submission['reply_to_email'],
+        $submission['reply_to_name']
+    );
     respond(200, ['success' => true]);
 } catch (Throwable $e) {
     error_log('Contact form SMTP error: ' . $e->getMessage());
@@ -66,6 +47,100 @@ function load_config(): array
     }
 
     throw new RuntimeException('Missing SMTP configuration file.');
+}
+
+function build_submission(array $post): array
+{
+    $type = clean_text((string)($post['form_type'] ?? 'contact'), 40);
+    $definitions = form_definitions();
+    $definition = $definitions[$type] ?? $definitions['contact'];
+
+    $data = [];
+    foreach ($definition['fields'] as $field => $label) {
+        $data[$field] = clean_text((string)($post[$field] ?? ''), 4000);
+    }
+
+    foreach ($definition['required'] as $field) {
+        if (($data[$field] ?? '') === '') {
+            respond(422, ['error' => 'Please complete all required fields.']);
+        }
+    }
+
+    if (isset($data['email']) && $data['email'] !== '' && !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        respond(422, ['error' => 'Please enter a valid email address.']);
+    }
+
+    $lines = [
+        $definition['heading'],
+        '',
+    ];
+
+    foreach ($definition['fields'] as $field => $label) {
+        $value = $data[$field] ?? '';
+        if ($value === '') {
+            continue;
+        }
+
+        $lines[] = $label . ':';
+        $lines[] = $value;
+        $lines[] = '';
+    }
+
+    $lines[] = 'Submitted: ' . gmdate('Y-m-d H:i:s') . ' UTC';
+    $lines[] = 'Source IP: ' . ($_SERVER['REMOTE_ADDR'] ?? 'unknown');
+
+    return [
+        'subject' => $definition['subject'],
+        'body' => implode("\r\n", $lines),
+        'reply_to_email' => $data['email'] ?? '',
+        'reply_to_name' => $data['name'] ?? ($data['org'] ?? ''),
+    ];
+}
+
+function form_definitions(): array
+{
+    return [
+        'contact' => [
+            'subject' => 'Healthy Start website contact form',
+            'heading' => 'New contact form submission',
+            'required' => ['name', 'email', 'message'],
+            'fields' => [
+                'name' => 'Name',
+                'email' => 'Email',
+                'message' => 'Message',
+            ],
+        ],
+        'ride' => [
+            'subject' => 'New Healthy Start ride request',
+            'heading' => 'New ride request from the Patients page',
+            'required' => ['name', 'phone', 'pickup', 'dropoff', 'date', 'time', 'mobility'],
+            'fields' => [
+                'name' => 'Full Name',
+                'phone' => 'Phone',
+                'pickup' => 'Pickup Address',
+                'dropoff' => 'Drop-off Facility',
+                'date' => 'Date',
+                'time' => 'Pickup Time',
+                'mobility' => 'Mobility Needs',
+                'roundtrip' => 'Round Trip',
+                'notes' => 'Notes',
+            ],
+        ],
+        'demo' => [
+            'subject' => 'New Healthy Start organization demo request',
+            'heading' => 'New organization demo request',
+            'required' => ['org', 'role', 'email', 'phone', 'volume'],
+            'fields' => [
+                'org' => 'Organization',
+                'role' => 'Role',
+                'email' => 'Work Email',
+                'phone' => 'Phone',
+                'volume' => 'Monthly Ride Volume',
+                'mix' => 'Vehicle Mix',
+                'notes' => 'Notes',
+            ],
+        ],
+    ];
 }
 
 function smtp_send(array $config, string $subject, string $body, string $replyToEmail, string $replyToName): void
@@ -114,13 +189,16 @@ function smtp_send(array $config, string $subject, string $body, string $replyTo
             'Date: ' . date(DATE_RFC2822),
             'From: ' . mailbox($fromEmail, $fromName),
             'To: ' . mailbox($toEmail, $toName),
-            'Reply-To: ' . mailbox($replyToEmail, $replyToName),
             'Subject: ' . encode_header($subject),
             'MIME-Version: 1.0',
             'Content-Type: text/plain; charset=UTF-8',
             'Content-Transfer-Encoding: 8bit',
             'X-Mailer: Healthy Start Contact Form',
         ];
+
+        if ($replyToEmail !== '' && filter_var($replyToEmail, FILTER_VALIDATE_EMAIL)) {
+            $headers[] = 'Reply-To: ' . mailbox($replyToEmail, $replyToName);
+        }
 
         fwrite($socket, implode("\r\n", $headers) . "\r\n\r\n" . dot_stuff($body) . "\r\n.\r\n");
         smtp_expect($socket, [250]);

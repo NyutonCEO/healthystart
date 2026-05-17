@@ -174,8 +174,10 @@
           <h2 style="background: linear-gradient(135deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0; font-size: 1.75rem;">Request a Demo</h2>
         </div>
         <p class="small muted" style="margin-bottom: 1.5rem; line-height: 1.6;">Fill out this form to schedule a personalized demo of our transportation coordination platform designed specifically for healthcare organizations.</p>
-      <form id="demoForm" class="form" action="https://formspree.io/f/mvgblkgr" method="POST" accept-charset="UTF-8">
+      <form id="demoForm" class="form" action="send-contact.php" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="form_type" value="demo">
         <input type="hidden" name="_subject" value="New Organization Demo Request">
+        <input type="text" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute; left:-9999px;">
         <div class="row">
           <div><label>Organization<input class="input" name="org" required placeholder="e.g., Stepping Stones Primary Care"></label></div>
           <div><label>Your Role<input class="input" name="role" required placeholder="Care Manager, Office Admin, etc."></label></div>

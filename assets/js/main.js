@@ -132,7 +132,7 @@ function handleFormSubmit(formId, successId) {
 handleFormSubmit('contactForm', 'contactSuccess');
 handleFormSubmit('demoForm', 'demoSuccess');
 
-// Patients: Book form with 24h validation and Formspree submission
+// Patients: Book form with 24h validation and HTTPS submission
 (function initBookForm() {
   const form = document.getElementById('bookForm');
   if (!form) return;
@@ -209,7 +209,7 @@ handleFormSubmit('demoForm', 'demoSuccess');
         showSuccess();
         setMinConstraints();
       } else {
-        // Try to extract Formspree error details
+        // Try to extract endpoint error details
         try {
           const data = await res.json();
           const msg = data?.errors?.map(e => e.message).join(' ') || data?.error || null;
@@ -217,7 +217,7 @@ handleFormSubmit('demoForm', 'demoSuccess');
         } catch (_) {
           // ignore JSON parse error
         }
-        // Fallback: submit normally to Formspree (page redirect)
+        // Fallback: submit normally to the configured endpoint.
         if (!errorBox || errorBox.hidden) {
           // If we didn't show a specific error, fall back to native submit
           form.submit();

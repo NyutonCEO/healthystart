@@ -125,7 +125,8 @@
     <div class="card">
       <img src="assets/img/20250907_2035_Medical Transport at Sunrise_remix_01k4kbwm93f76b3etvwzcx9n81.png" alt="Healthy Start driver assisting a passenger into a vehicle" width="600" height="420" style="width:100%; height:auto; border-radius: var(--radius); border:1px solid var(--border); margin-bottom:.75rem;" loading="lazy" decoding="async" />
       <h2>Send a message</h2>
-      <form id="contactForm" class="form">
+      <form id="contactForm" class="form" action="send-contact.php" method="POST" accept-charset="UTF-8">
+        <input type="text" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute; left:-9999px;">
         <div class="row">
           <div><label>Name<input class="input" name="name" required></label></div>
           <div><label>Email<input class="input" type="email" name="email" required></label></div>

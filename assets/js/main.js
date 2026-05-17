@@ -70,7 +70,7 @@ function calculateQuote() {
   if (note) note.textContent = 'Out-of-town estimate at $4.15/mile. Minimum fare may apply.';
 }
 
-// Simple form handlers with Formspree submission
+// Simple form handlers with HTTPS form submission
 function handleFormSubmit(formId, successId) {
   const form = document.getElementById(formId);
   const success = document.getElementById(successId);
@@ -86,9 +86,12 @@ function handleFormSubmit(formId, successId) {
     }
     
     try {
+      const endpoint = form.getAttribute('action');
+      if (!endpoint) throw new Error('Missing form submission endpoint.');
+
       const fd = new FormData(form);
       const res = await fetch(form.action, { 
-        method: 'POST', 
+        method: form.method || 'POST',
         body: fd, 
         headers: { 'Accept': 'application/json' } 
       });
@@ -100,14 +103,18 @@ function handleFormSubmit(formId, successId) {
           setTimeout(() => (success.hidden = true), 6000);
         }
       } else {
-        const data = await res.json();
-        if (data.error) {
-          alert('Error: ' + data.error);
+        let message = 'We could not send your message. Please try again or call (252) 674-1812.';
+        try {
+          const data = await res.json();
+          message = data?.error || data?.message || data?.errors?.map(error => error.message).join(' ') || message;
+        } catch (_) {
+          // Keep the generic message when the endpoint returns a non-JSON error.
         }
+        alert(message);
       }
     } catch (err) {
       console.error('Form submission error:', err);
-      alert('Network error. Please try again or call (252) 674‑1812.');
+      alert('Network error. Please try again or call (252) 674-1812.');
     } finally {
       if (submitBtn) {
         submitBtn.removeAttribute('disabled');

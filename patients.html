@@ -23,20 +23,8 @@
     <meta property="og:url" content="https://healthystartnc.com/patients.html">
     <link rel="canonical" href="https://healthystartnc.com/patients.html">
     <link rel="icon" type="image/png" href="assets/img/logo.png">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260517-menu">
     <script defer src="assets/js/main.js"></script>
-    <script>
-      // Verify this is the patients page
-      window.addEventListener('DOMContentLoaded', function() {
-        const title = document.getElementById('patients-page-title');
-        const bookForm = document.getElementById('bookForm');
-        if (!title || !bookForm) {
-          console.error('Patients page elements not found!');
-        } else {
-          console.log('✅ Patients page loaded correctly');
-        }
-      });
-    </script>
     <script type="application/ld+json">
     {
   "@context": "https://schema.org",
@@ -110,16 +98,23 @@
       </div>
     </header>
   <main id="main">
-    
-<!-- ============================================ -->
-<!-- THIS IS THE PATIENTS PAGE - NOT ORGANIZATIONS -->
-<!-- Title: Individuals & Caregivers -->
-<!-- Form: Book a Ride (NOT Request a Demo) -->
-<!-- ============================================ -->
-<section class="section container">
-  <h1 id="patients-page-title">Individuals & Caregivers</h1>
-  <p class="lead">Book a ride to your medical appointment with door‑to‑door service and real‑time updates.</p>
-  <div class="grid-2">
+
+<section class="hero container hero-content" aria-labelledby="patients-hero">
+  <div>
+    <h1 id="patients-hero">Book reliable medical transportation.</h1>
+    <p class="lead">Door-to-door non-emergency medical transportation for appointments, dialysis, therapy, and recurring care.</p>
+    <div class="badges">
+      <span class="badge">On-time coordination</span>
+      <span class="badge">HIPAA-conscious process</span>
+      <span class="badge">Wheelchair-accessible options</span>
+      <span class="badge">Eastern & Central NC</span>
+    </div>
+    <div style="margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap;">
+      <a class="btn btn-primary" href="patients.html#book">Book Ride</a>
+      <a class="btn btn-outline" href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div>
     <div class="card" id="book">
       <h2>Book a Ride</h2>
       <form id="bookForm" class="form" action="send-contact.php" method="POST" accept-charset="UTF-8">
@@ -128,11 +123,11 @@
         <input type="text" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute; left:-9999px;">
         <div class="row">
           <div><label>Full Name<input class="input" name="name" required placeholder="Jane Smith" autocomplete="name"></label></div>
-          <div><label>Phone<input class="input" name="phone" type="tel" required placeholder="(252) 674‑1812" autocomplete="tel"></label></div>
+          <div><label>Phone<input class="input" name="phone" type="tel" required placeholder="(252) 674-1812" autocomplete="tel"></label></div>
         </div>
         <div class="row">
           <div><label>Pickup Address<input class="input" name="pickup" required placeholder="123 Main St" autocomplete="address-line1"></label></div>
-          <div><label>Drop‑off Facility<input class="input" name="dropoff" required placeholder="Clinic/Hospital name"></label></div>
+          <div><label>Drop-off Facility<input class="input" name="dropoff" required placeholder="Clinic/Hospital name"></label></div>
         </div>
         <div class="row">
           <div><label>Date<input class="input" type="date" name="date" required></label></div>
@@ -141,37 +136,107 @@
         <div class="row">
           <div><label>Mobility Needs<select name="mobility" required>
             <option value="standard">Standard</option>
-            <option value="wheelchair">Wheelchair‑accessible</option>
+            <option value="wheelchair">Wheelchair-accessible</option>
           </select></label></div>
           <div><label>Round Trip?<select name="roundtrip">
             <option value="no">No</option>
-            <option value="yes">Yes – wait & return</option>
+            <option value="yes">Yes - wait & return</option>
           </select></label></div>
         </div>
         <label>Notes (no PHI please)<textarea name="notes" rows="3" placeholder="Any access instructions or building details."></textarea></label>
         <div class="small muted">By submitting, you agree to our <a href="privacy.html">Privacy Policy</a>. Please do not include diagnosis or medical details.</div>
         <button class="btn btn-primary" type="submit">Request Ride</button>
         <div id="bookError" class="small" style="color:#b91c1c; margin-top:.5rem;" hidden></div>
-        <div id="bookSuccess" class="small" style="color:#065f46; margin-top:.5rem;" hidden>Thanks! We’ve received your request. We’ll be with you in 24 hours or less.</div>
+        <div id="bookSuccess" class="small" style="color:#065f46; margin-top:.5rem;" hidden>Thanks! We have received your request. We'll be with you in 24 hours or less.</div>
       </form>
     </div>
-    <div class="card">
-      <img src="assets/img/20250907_2104_Accessible Transport Assistance_remix_01k4kdha50ffy8zatwh7xcav1d.png" alt="Accessible transport assistance for patients" style="width:100%; height:auto; border-radius: var(--radius); border:1px solid var(--border); margin-bottom:.75rem;" loading="lazy" decoding="async" />
-      <h2>What to expect</h2>
-      <ul>
-        <li>Text or call updates with your driver’s ETA</li>
-        <li>Door‑to‑door assistance as needed</li>
-        <li>Wheelchair‑accessible vehicles on request</li>
-        <li>Flexible return options after your appointment</li>
-      </ul>
-      <blockquote class="testimonial">
-        “They always arrive on time and help my dad get to dialysis safely.” — <strong>Angela, caregiver</strong>
-      </blockquote>
-      <div class="banner" style="margin-top:1rem;">
-        <div><strong>Prefer to call?</strong><div class="small">We can book for you over the phone.</div></div>
-        <div class="actions"><a class="btn btn-light" href="tel:+12526741812">(252) 674‑1812</a></div>
-      </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="patients-stats">
+  <div class="container">
+    <h2 id="patients-stats">Stats</h2>
+    <div class="kpis">
+      <div class="kpi"><strong>9</strong><span class="muted small">counties served</span></div>
+      <div class="kpi"><strong>24h</strong><span class="muted small">preferred advance booking</span></div>
+      <div class="kpi"><strong>Mon-Sat</strong><span class="muted small">core service schedule</span></div>
+      <div class="kpi"><strong>$20+</strong><span class="muted small">local Wilson roundtrip</span></div>
     </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="patients-benefits">
+  <div class="container">
+    <h2 id="patients-benefits">Main Benefits</h2>
+    <div class="grid-3">
+      <div class="card"><h3>Book online or by phone</h3><p>Submit ride details from the page or call the team for scheduling help.</p></div>
+      <div class="card"><h3>Door-to-door support</h3><p>Drivers support pickup and drop-off at the appropriate entrance.</p></div>
+      <div class="card"><h3>Accessible rides</h3><p>Request wheelchair-accessible transportation when needed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="patients-reviews">
+  <div class="container">
+    <h2 id="patients-reviews">Reviews</h2>
+    <div class="grid-3">
+      <blockquote class="testimonial"><p>Healthy Start helps patients get to appointments with less stress and more confidence.</p><cite>- Patient family member</cite></blockquote>
+      <blockquote class="testimonial"><p>The team understands healthcare transportation and communicates clearly.</p><cite>- Care coordination partner</cite></blockquote>
+      <blockquote class="testimonial"><p>Reliable local transportation support makes recurring care easier to manage.</p><cite>- Community partner</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="patients-more-benefits">
+  <div class="container">
+    <h2 id="patients-more-benefits">Benefits More Detail</h2>
+    <div class="grid-3">
+      <div class="card"><strong>24-hour lead time</strong><p>Advance notice helps confirm availability and vehicle needs.</p></div>
+      <div class="card"><strong>Same-day questions</strong><p>Call for urgent scheduling or availability questions.</p></div>
+      <div class="card"><strong>Recurring visits</strong><p>Support for dialysis, therapy, and other repeat appointments.</p></div>
+      <div class="card"><strong>Caregiver friendly</strong><p>Caregivers can help submit trip information.</p></div>
+      <div class="card"><strong>Transparent pricing</strong><p>Fare guidance is available on the pricing page.</p></div>
+      <div class="card"><strong>Service area clarity</strong><p>Coverage details are available before booking.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="patients-process">
+  <div class="container">
+    <h2 id="patients-process">The Process</h2>
+    <div class="grid-3">
+      <div class="card"><strong>1. Request</strong><p>Share the pickup, drop-off, timing, and service needs.</p></div>
+      <div class="card"><strong>2. Confirm</strong><p>We review the details and coordinate the right transportation workflow.</p></div>
+      <div class="card"><strong>3. Ride</strong><p>Patients receive reliable, courteous transportation support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="patients-faq">
+  <div class="container">
+    <h2 id="patients-faq">FAQ</h2>
+    <div class="accordion" role="list">
+      <details class="accordion-item" open>
+        <summary class="accordion-trigger"><span class="label">How do I get started?</span><span class="chevron">▾</span></summary>
+        <div class="accordion-panel"><p>Use the form on this page or call (252) 674-1812 so we can route your request to the right team.</p></div>
+      </details>
+      <details class="accordion-item">
+        <summary class="accordion-trigger"><span class="label">Do you support wheelchair-accessible rides?</span><span class="chevron">▾</span></summary>
+        <div class="accordion-panel"><p>Yes. We coordinate wheelchair-accessible options when requested and available.</p></div>
+      </details>
+      <details class="accordion-item">
+        <summary class="accordion-trigger"><span class="label">What areas do you serve?</span><span class="chevron">▾</span></summary>
+        <div class="accordion-panel"><p>Healthy Start serves multiple counties across Eastern and Central North Carolina. Visit the coverage page for the current list.</p></div>
+      </details>
+    </div>
+    <p class="small muted" style="margin-top:1rem;">Have another question? <a href="faq.html">Visit the full FAQ</a> or <a href="contact.html">contact us</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container banner">
+    <div><strong>Ready to Book?</strong><div class="small">Submit your ride request and we will follow up.</div></div>
+    <div class="actions"><a class="btn btn-light" href="patients.html#book">Book Ride</a><a class="btn btn-primary" href="contact.html">Contact</a></div>
   </div>
 </section>
 

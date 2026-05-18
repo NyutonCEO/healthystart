@@ -23,7 +23,7 @@
     <meta property="og:url" content="https://healthystartnc.com/pricing.html">
     <link rel="canonical" href="https://healthystartnc.com/pricing.html">
     <link rel="icon" type="image/png" href="assets/img/logo.png">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260517-menu">
     <script defer src="assets/js/main.js"></script>
     <script type="application/ld+json">
     {
@@ -96,49 +96,143 @@
       </div>
     </header>
   <main id="main">
-    
-<section class="section container">
-  <h1>Pricing & Quotes</h1>
-  <p class="lead">Clear, upfront rates for individuals and organizations. Call for exact quotes.</p>
-  <div class="grid-2">
-    <div class="card">
-      <h2>Standard Rates</h2>
-      <ul>
-        <li><strong>Local (Wilson):</strong> Rides start at <strong>$20 roundtrip</strong>.</li>
-        <li><strong>Out‑of‑town:</strong> <strong>$4.15 per mile</strong> with a minimum fare.</li>
-        <li><strong>Wheelchair‑accessible:</strong> Available; rates vary based on trip details.</li>
-        <li><strong>Group trips:</strong> Priced based on size and distance.</li>
-        <li><strong>Payment:</strong> Cash, debit/credit card, PayPal, and checks.</li>
-      </ul>
-      <p class="small muted">Pricing is subject to change. Final quotes depend on distance, accessibility needs, and scheduling.</p>
-      <div class="banner"><div><strong>Need an exact quote?</strong><div class="small">We’ll confirm pricing and availability.</div></div><div class="actions"><a class="btn btn-light" href="tel:+12526741812">Call (252) 674‑1812</a><a class="btn btn-primary" href="patients.html#book">Book online</a></div></div>
+
+<section class="hero container hero-content" aria-labelledby="pricing-hero">
+  <div>
+    <h1 id="pricing-hero">Pricing and quote guidance.</h1>
+    <p class="lead">Understand local and out-of-town fare guidance before booking medical transportation.</p>
+    <div class="badges">
+      <span class="badge">On-time coordination</span>
+      <span class="badge">HIPAA-conscious process</span>
+      <span class="badge">Wheelchair-accessible options</span>
+      <span class="badge">Eastern & Central NC</span>
     </div>
-    <div class="card">
-      <img src="assets/img/booking.png" alt="Booking a ride online" width="1024" height="1536" style="width:100%; height:auto; border-radius: var(--radius); border:1px solid var(--border); margin-bottom:.75rem;" loading="lazy" decoding="async" />
-      <h2>Group Shuttles & Notes</h2>
-      <ul>
-        <li><strong>Wilson group shuttle:</strong> $5.00 per person (local events and outings)</li>
-        <li><strong>Out‑of‑town group shuttle:</strong> $4.15 per mile + $5.00 per person</li>
-        <li><strong>Minimum fares:</strong> One‑way $45.00; Round‑trip $85.00 (out‑of‑town)</li>
-        <li><strong>Miles calculated:</strong> From pick‑up address to drop‑off address and return</li>
-        <li><strong>Tolls & parking:</strong> Passenger responsibility when applicable</li>
-      </ul>
-      <h2 style="margin-top:1rem;">Discounts</h2>
-      <ul>
-        <li>1 ride/week for a month: 5% discount</li>
-        <li>3+ rides in a week: 10% discount</li>
-        <li>10+ rides in a month: 15% discount</li>
-        <li class="small muted">Discounts cannot be combined.</li>
-      </ul>
-      <h2 style="margin-top:1rem;">Insurance & Medicaid</h2>
-      <p>At this time we do not accept Medicaid, Medicare, or private insurance. If you’re an organization or broker exploring contracted services, please <a href="organizations.html">contact our team</a>.</p>
-      <h2 style="margin-top:1rem;">What affects price?</h2>
-      <ul>
-        <li>Pickup and drop‑off distance</li>
-        <li>Wheelchair accessibility and assistance needs</li>
-        <li>Peak times, holidays, or special scheduling</li>
-      </ul>
+    <div style="margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap;">
+      <a class="btn btn-primary" href="patients.html#book">Book Ride</a>
+      <a class="btn btn-outline" href="contact.html">Contact</a>
     </div>
+  </div>
+  <div>
+    <div class="card">
+      <h2>Request a Demo</h2>
+      <p class="small muted">Tell us about your organization and transportation coordination needs.</p>
+      <form id="demoForm" class="form" action="send-contact.php" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="form_type" value="demo">
+        <input type="hidden" name="_subject" value="New Organization Demo Request">
+        <input type="text" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute; left:-9999px;">
+        <div class="row">
+          <div><label>Organization<input class="input" name="org" required placeholder="Organization name"></label></div>
+          <div><label>Your Role<input class="input" name="role" required placeholder="Care Manager"></label></div>
+        </div>
+        <div class="row">
+          <div><label>Work Email<input class="input" type="email" name="email" required placeholder="you@org.org"></label></div>
+          <div><label>Phone<input class="input" type="tel" name="phone" required placeholder="(252) 674-1812"></label></div>
+        </div>
+        <div class="row">
+          <div><label>Monthly Ride Volume<select name="volume" required>
+            <option value="under50">Under 50</option>
+            <option value="50-200">50-200</option>
+            <option value="200-1000">200-1,000</option>
+            <option value="1000+">1,000+</option>
+          </select></label></div>
+          <div><label>Vehicle Mix<select name="mix">
+            <option>Mostly standard</option>
+            <option>Mix of standard & wheelchair</option>
+            <option>Mostly wheelchair</option>
+          </select></label></div>
+        </div>
+        <label>Notes<textarea name="notes" rows="3" placeholder="Counties, payers, preferred scheduling workflow, etc."></textarea></label>
+        <button class="btn btn-primary" type="submit">Request Demo</button>
+        <div id="demoSuccess" class="small" style="color: var(--blue); font-weight: 600; margin-top: 0.5rem;" hidden>Thanks! We'll reach out to schedule a walk-through.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pricing-stats">
+  <div class="container">
+    <h2 id="pricing-stats">Stats</h2>
+    <div class="kpis">
+      <div class="kpi"><strong>9</strong><span class="muted small">counties served</span></div>
+      <div class="kpi"><strong>24h</strong><span class="muted small">preferred advance booking</span></div>
+      <div class="kpi"><strong>Mon-Sat</strong><span class="muted small">core service schedule</span></div>
+      <div class="kpi"><strong>$20+</strong><span class="muted small">local Wilson roundtrip</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pricing-benefits">
+  <div class="container">
+    <h2 id="pricing-benefits">Main Benefits</h2>
+    <div class="grid-3">
+      <div class="card"><h3>Reduce friction</h3><p>Make transportation easier for patients, caregivers, and care teams.</p></div>
+      <div class="card"><h3>Coordinate clearly</h3><p>Capture the details needed to support a safe, timely trip.</p></div>
+      <div class="card"><h3>Improve access</h3><p>Help riders stay connected to appointments, services, and community support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pricing-reviews">
+  <div class="container">
+    <h2 id="pricing-reviews">Reviews</h2>
+    <div class="grid-3">
+      <blockquote class="testimonial"><p>Healthy Start helps patients get to appointments with less stress and more confidence.</p><cite>- Patient family member</cite></blockquote>
+      <blockquote class="testimonial"><p>The team understands healthcare transportation and communicates clearly.</p><cite>- Care coordination partner</cite></blockquote>
+      <blockquote class="testimonial"><p>Reliable local transportation support makes recurring care easier to manage.</p><cite>- Community partner</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pricing-more-benefits">
+  <div class="container">
+    <h2 id="pricing-more-benefits">Benefits More Detail</h2>
+    <div class="grid-3">
+      <div class="card"><strong>Local service area</strong><p>Coverage across key Eastern and Central North Carolina counties.</p></div>
+      <div class="card"><strong>Accessible options</strong><p>Wheelchair-accessible coordination when requested and available.</p></div>
+      <div class="card"><strong>Clear communication</strong><p>Phone and web workflows help teams coordinate without confusion.</p></div>
+      <div class="card"><strong>Compliance-minded</strong><p>Minimal PHI collection and HIPAA-conscious practices.</p></div>
+      <div class="card"><strong>Flexible use cases</strong><p>Appointments, therapy, dialysis, discharge, and approved community trips.</p></div>
+      <div class="card"><strong>Simple next step</strong><p>Use the form to start a conversation or call the team directly.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pricing-process">
+  <div class="container">
+    <h2 id="pricing-process">The Process</h2>
+    <div class="grid-3">
+      <div class="card"><strong>1. Request</strong><p>Share the pickup, drop-off, timing, and service needs.</p></div>
+      <div class="card"><strong>2. Confirm</strong><p>We review the details and coordinate the right transportation workflow.</p></div>
+      <div class="card"><strong>3. Ride</strong><p>Patients receive reliable, courteous transportation support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pricing-faq">
+  <div class="container">
+    <h2 id="pricing-faq">FAQ</h2>
+    <div class="accordion" role="list">
+      <details class="accordion-item" open>
+        <summary class="accordion-trigger"><span class="label">How do I get started?</span><span class="chevron">▾</span></summary>
+        <div class="accordion-panel"><p>Use the form on this page or call (252) 674-1812 so we can route your request to the right team.</p></div>
+      </details>
+      <details class="accordion-item">
+        <summary class="accordion-trigger"><span class="label">Do you support wheelchair-accessible rides?</span><span class="chevron">▾</span></summary>
+        <div class="accordion-panel"><p>Yes. We coordinate wheelchair-accessible options when requested and available.</p></div>
+      </details>
+      <details class="accordion-item">
+        <summary class="accordion-trigger"><span class="label">What areas do you serve?</span><span class="chevron">▾</span></summary>
+        <div class="accordion-panel"><p>Healthy Start serves multiple counties across Eastern and Central North Carolina. Visit the coverage page for the current list.</p></div>
+      </details>
+    </div>
+    <p class="small muted" style="margin-top:1rem;">Have another question? <a href="faq.html">Visit the full FAQ</a> or <a href="contact.html">contact us</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container banner">
+    <div><strong>Ready to Start?</strong><div class="small">Tell us what transportation support you need and we will help with the next step.</div></div>
+    <div class="actions"><a class="btn btn-light" href="patients.html#book">Book Ride</a><a class="btn btn-primary" href="contact.html">Contact</a></div>
   </div>
 </section>
 

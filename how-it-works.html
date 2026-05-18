@@ -23,7 +23,7 @@
     <meta property="og:url" content="https://healthystartnc.com/how-it-works.html">
     <link rel="canonical" href="https://healthystartnc.com/how-it-works.html">
     <link rel="icon" type="image/png" href="assets/img/logo.png">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20260517-menu">
     <script defer src="assets/js/main.js"></script>
     <script type="application/ld+json">
     {
@@ -96,22 +96,143 @@
       </div>
     </header>
   <main id="main">
-    
-<section class="section container">
-  <h1>How It Works</h1>
-  <div class="hero-image-row hero-image-gap">
-    <img class="hero-image" src="assets/img/20250907_2104_Veteran Greeted by Driver_remix_01k4kdj2cheb8tapv04zyx4xny.png" alt="Driver greeting a veteran passenger" loading="lazy" decoding="async"/>
+
+<section class="hero container hero-content" aria-labelledby="how-hero">
+  <div>
+    <h1 id="how-hero">How Healthy Start works.</h1>
+    <p class="lead">A simple request, confirmation, and ride coordination process for patients and healthcare partners.</p>
+    <div class="badges">
+      <span class="badge">On-time coordination</span>
+      <span class="badge">HIPAA-conscious process</span>
+      <span class="badge">Wheelchair-accessible options</span>
+      <span class="badge">Eastern & Central NC</span>
+    </div>
+    <div style="margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap;">
+      <a class="btn btn-primary" href="organizations.html">Request Demo</a>
+      <a class="btn btn-outline" href="contact.html">Contact</a>
+    </div>
   </div>
-  <div class="grid-3">
-    <div class="card"><h3>1. Request</h3><p>Submit pickup, drop‑off, and appointment time. We suggest requesting at least 24 hours in advance.</p></div>
-    <div class="card"><h3>2. Match</h3><p>We dispatch the right vehicle type and confirm ETA. Wheelchair‑accessible available on request.</p></div>
-    <div class="card"><h3>3. Ride</h3><p>Door‑to‑door assistance and live status. Wait‑and‑return or separate pickup times supported.</p></div>
+  <div>
+    <div class="card">
+      <h2>Request a Demo</h2>
+      <p class="small muted">Tell us about your organization and transportation coordination needs.</p>
+      <form id="demoForm" class="form" action="send-contact.php" method="POST" accept-charset="UTF-8">
+        <input type="hidden" name="form_type" value="demo">
+        <input type="hidden" name="_subject" value="New Organization Demo Request">
+        <input type="text" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute; left:-9999px;">
+        <div class="row">
+          <div><label>Organization<input class="input" name="org" required placeholder="Organization name"></label></div>
+          <div><label>Your Role<input class="input" name="role" required placeholder="Care Manager"></label></div>
+        </div>
+        <div class="row">
+          <div><label>Work Email<input class="input" type="email" name="email" required placeholder="you@org.org"></label></div>
+          <div><label>Phone<input class="input" type="tel" name="phone" required placeholder="(252) 674-1812"></label></div>
+        </div>
+        <div class="row">
+          <div><label>Monthly Ride Volume<select name="volume" required>
+            <option value="under50">Under 50</option>
+            <option value="50-200">50-200</option>
+            <option value="200-1000">200-1,000</option>
+            <option value="1000+">1,000+</option>
+          </select></label></div>
+          <div><label>Vehicle Mix<select name="mix">
+            <option>Mostly standard</option>
+            <option>Mix of standard & wheelchair</option>
+            <option>Mostly wheelchair</option>
+          </select></label></div>
+        </div>
+        <label>Notes<textarea name="notes" rows="3" placeholder="Counties, payers, preferred scheduling workflow, etc."></textarea></label>
+        <button class="btn btn-primary" type="submit">Request Demo</button>
+        <div id="demoSuccess" class="small" style="color: var(--blue); font-weight: 600; margin-top: 0.5rem;" hidden>Thanks! We'll reach out to schedule a walk-through.</div>
+      </form>
+    </div>
   </div>
-  <h2>Service levels</h2>
-  <div class="grid-3">
-    <div class="card"><strong>Ambulatory</strong><p>Standard sedan rides for patients who can walk with minimal help.</p></div>
-    <div class="card"><strong>Wheelchair</strong><p>Vehicles equipped for wheelchair passengers and trained drivers.</p></div>
-    <div class="card"><strong>Escort/Attendant</strong><p>Optional caregiver ride‑along for extra assistance.</p></div>
+</section>
+
+<section class="section" aria-labelledby="how-stats">
+  <div class="container">
+    <h2 id="how-stats">Stats</h2>
+    <div class="kpis">
+      <div class="kpi"><strong>9</strong><span class="muted small">counties served</span></div>
+      <div class="kpi"><strong>24h</strong><span class="muted small">preferred advance booking</span></div>
+      <div class="kpi"><strong>Mon-Sat</strong><span class="muted small">core service schedule</span></div>
+      <div class="kpi"><strong>$20+</strong><span class="muted small">local Wilson roundtrip</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-benefits">
+  <div class="container">
+    <h2 id="how-benefits">Main Benefits</h2>
+    <div class="grid-3">
+      <div class="card"><h3>Reduce friction</h3><p>Make transportation easier for patients, caregivers, and care teams.</p></div>
+      <div class="card"><h3>Coordinate clearly</h3><p>Capture the details needed to support a safe, timely trip.</p></div>
+      <div class="card"><h3>Improve access</h3><p>Help riders stay connected to appointments, services, and community support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-reviews">
+  <div class="container">
+    <h2 id="how-reviews">Reviews</h2>
+    <div class="grid-3">
+      <blockquote class="testimonial"><p>Healthy Start helps patients get to appointments with less stress and more confidence.</p><cite>- Patient family member</cite></blockquote>
+      <blockquote class="testimonial"><p>The team understands healthcare transportation and communicates clearly.</p><cite>- Care coordination partner</cite></blockquote>
+      <blockquote class="testimonial"><p>Reliable local transportation support makes recurring care easier to manage.</p><cite>- Community partner</cite></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-more-benefits">
+  <div class="container">
+    <h2 id="how-more-benefits">Benefits More Detail</h2>
+    <div class="grid-3">
+      <div class="card"><strong>Local service area</strong><p>Coverage across key Eastern and Central North Carolina counties.</p></div>
+      <div class="card"><strong>Accessible options</strong><p>Wheelchair-accessible coordination when requested and available.</p></div>
+      <div class="card"><strong>Clear communication</strong><p>Phone and web workflows help teams coordinate without confusion.</p></div>
+      <div class="card"><strong>Compliance-minded</strong><p>Minimal PHI collection and HIPAA-conscious practices.</p></div>
+      <div class="card"><strong>Flexible use cases</strong><p>Appointments, therapy, dialysis, discharge, and approved community trips.</p></div>
+      <div class="card"><strong>Simple next step</strong><p>Use the form to start a conversation or call the team directly.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-process">
+  <div class="container">
+    <h2 id="how-process">The Process</h2>
+    <div class="grid-3">
+      <div class="card"><strong>1. Request</strong><p>Share the pickup, drop-off, timing, and service needs.</p></div>
+      <div class="card"><strong>2. Confirm</strong><p>We review the details and coordinate the right transportation workflow.</p></div>
+      <div class="card"><strong>3. Ride</strong><p>Patients receive reliable, courteous transportation support.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="how-faq">
+  <div class="container">
+    <h2 id="how-faq">FAQ</h2>
+    <div class="accordion" role="list">
+      <details class="accordion-item" open>
+        <summary class="accordion-trigger"><span class="label">How do I get started?</span><span class="chevron">▾</span></summary>
+        <div class="accordion-panel"><p>Use the form on this page or call (252) 674-1812 so we can route your request to the right team.</p></div>
+      </details>
+      <details class="accordion-item">
+        <summary class="accordion-trigger"><span class="label">Do you support wheelchair-accessible rides?</span><span class="chevron">▾</span></summary>
+        <div class="accordion-panel"><p>Yes. We coordinate wheelchair-accessible options when requested and available.</p></div>
+      </details>
+      <details class="accordion-item">
+        <summary class="accordion-trigger"><span class="label">What areas do you serve?</span><span class="chevron">▾</span></summary>
+        <div class="accordion-panel"><p>Healthy Start serves multiple counties across Eastern and Central North Carolina. Visit the coverage page for the current list.</p></div>
+      </details>
+    </div>
+    <p class="small muted" style="margin-top:1rem;">Have another question? <a href="faq.html">Visit the full FAQ</a> or <a href="contact.html">contact us</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container banner">
+    <div><strong>Ready to Start?</strong><div class="small">Tell us what transportation support you need and we will help with the next step.</div></div>
+    <div class="actions"><a class="btn btn-light" href="organizations.html">Request Demo</a><a class="btn btn-primary" href="contact.html">Contact</a></div>
   </div>
 </section>
 

@@ -13,7 +13,7 @@
     gtag('js', new Date());
     gtag('config', 'G-1PXCN8ML8F');
   </script>
-  <meta name="description" content="About Healthy Start Medical Transportation — reliable, door‑to‑door non‑emergency medical and ancillary transportation for seniors, disabled individuals, and veterans.">
+  <meta name="description" content="Learn about Healthy Start Medical Transportation, providing reliable door-to-door NEMT services for seniors, disabled riders, veterans, and care teams.">
   <meta property="og:title" content="About Healthy Start" />
   <meta property="og:description" content="Consistent, reliable door‑to‑door non‑emergency medical and ancillary transportation across North Carolina." />
   <meta property="og:image" content="https://healthystartnc.com/assets/img/20250908_0103_Accessible Van Assistance_remix_01k4kv774rf2dacfry55frbqvs.png" />
@@ -23,7 +23,7 @@
   <meta property="og:url" content="https://healthystartnc.com/about.html" />
   <link rel="canonical" href="https://healthystartnc.com/about.html" />
   <link rel="icon" type="image/png" href="assets/img/logo.png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260517-menu" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260601-production" />
   <script defer src="assets/js/main.js"></script>
   <script type="application/ld+json">
   {
@@ -55,20 +55,20 @@
       <nav class="nav" aria-label="Primary">
         <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="navMenu">Menu</button>
         <ul id="navMenu" class="nav-menu">
-          <li><a class="nav-link" href="patients.html">Patients</a></li>
-          <li><a class="nav-link" href="organizations.html">Organizations</a></li>
-          <li><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="patients.html">Patient</a></li>
+          <li><a class="nav-link" href="organizations.html">Organization</a></li>
           <li class="has-submenu">
             <button class="submenu-toggle nav-link" aria-haspopup="true" aria-expanded="false">Resources</button>
             <ul class="submenu" role="menu">
+              <li><a class="nav-link" href="how-it-works.html" role="menuitem">How It Works</a></li>
               <li><a class="nav-link" href="faq.html" role="menuitem">FAQ</a></li>
               <li><a class="nav-link" href="coverage.html" role="menuitem">Coverage</a></li>
-              <li><a class="nav-link" href="compliance.html" role="menuitem">Compliance</a></li>
               <li><a class="nav-link" href="pricing.html" role="menuitem">Pricing</a></li>
-              <li><a class="nav-link" href="about.html" role="menuitem">About</a></li>
-              <li><a class="nav-link" href="careers.html" role="menuitem">Careers</a></li>
-              <li><a class="nav-link" href="lab-transport.html" role="menuitem">Lab Transport</a></li>
+              <li><a class="nav-link" href="compliance.html" role="menuitem">Compliance</a></li>
               <li><a class="nav-link" href="policies.html" role="menuitem">Policies</a></li>
+              <li><a class="nav-link" href="lab-transport.html" role="menuitem">Lab Transport</a></li>
+              <li><a class="nav-link" href="careers.html" role="menuitem">Careers</a></li>
             </ul>
           </li>
           <li><a class="nav-link" href="contact.html">Contact</a></li>
@@ -143,61 +143,100 @@
   </div>
 </section>
 
-<section class="section" aria-labelledby="about-stats">
-  <div class="container">
-    <h2 id="about-stats">Stats</h2>
-    <div class="kpis">
-      <div class="kpi"><strong>9</strong><span class="muted small">counties served</span></div>
-      <div class="kpi"><strong>24h</strong><span class="muted small">preferred advance booking</span></div>
-      <div class="kpi"><strong>Mon-Sat</strong><span class="muted small">core service schedule</span></div>
-      <div class="kpi"><strong>$20+</strong><span class="muted small">local Wilson roundtrip</span></div>
+<section class="section about-coverage-section" aria-labelledby="about-coverage">
+  <div class="container about-coverage-layout">
+    <div>
+      <h2 id="about-coverage">Coverage</h2>
+      <p class="lead">Healthy Start serves communities across Eastern and Central North Carolina. Use the coverage map to review active service counties.</p>
+      <div class="badges coverage-pills" aria-label="Service counties">
+        <a href="#about-map" class="badge county-pill about-county-pill" data-county="Wilson">Wilson</a>
+        <a href="#about-map" class="badge county-pill about-county-pill" data-county="Wake">Wake</a>
+        <a href="#about-map" class="badge county-pill about-county-pill" data-county="Johnston">Johnston</a>
+        <a href="#about-map" class="badge county-pill about-county-pill" data-county="Nash">Nash</a>
+        <a href="#about-map" class="badge county-pill about-county-pill" data-county="Edgecombe">Edgecombe</a>
+        <a href="#about-map" class="badge county-pill about-county-pill" data-county="Pitt">Pitt</a>
+        <a href="#about-map" class="badge county-pill about-county-pill" data-county="Wayne">Wayne</a>
+        <a href="#about-map" class="badge county-pill about-county-pill" data-county="Greene">Greene</a>
+        <a href="#about-map" class="badge county-pill about-county-pill" data-county="Lenoir">Lenoir</a>
+      </div>
+      <div style="margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="coverage.html">See Coverage</a>
+        <a class="btn btn-outline" href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div style="width: 100%; display: flex; flex-direction: column;">
+      <div id="about-map" class="coverage-map coverage-map--embedded" aria-label="Healthy Start service area map"></div>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="about-benefits">
+<section class="section" aria-labelledby="about-compliance">
   <div class="container">
-    <h2 id="about-benefits">Main Benefits</h2>
+    <div class="section-heading">
+      <h2 id="about-compliance">Compliance</h2>
+      <p class="muted">Healthy Start uses compliance-minded workflows for transportation coordination, payment handling, and partner communication.</p>
+    </div>
     <div class="grid-3">
-      <div class="card"><h3>Reduce friction</h3><p>Make transportation easier for patients, caregivers, and care teams.</p></div>
-      <div class="card"><h3>Coordinate clearly</h3><p>Capture the details needed to support a safe, timely trip.</p></div>
-      <div class="card"><h3>Improve access</h3><p>Help riders stay connected to appointments, services, and community support.</p></div>
+      <div class="card"><strong>HIPAA-conscious processes</strong><p>We limit protected health information on web forms and use secure coordination channels for sensitive transportation details.</p></div>
+      <div class="card"><strong>PCI DSS payment handling</strong><p>Payment workflows are designed to protect cardholder data and avoid storing payment details in website forms.</p></div>
+      <div class="card"><strong>Clear documentation</strong><p>Ride details, service expectations, and partner workflows are documented to support accountability and continuity of care.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="about-reviews">
+<section class="section" aria-labelledby="about-policies">
   <div class="container">
-    <h2 id="about-reviews">Reviews</h2>
+    <div class="section-heading">
+      <h2 id="about-policies">Policies</h2>
+      <p class="muted">Our service policies are written to keep scheduling, rider expectations, cancellations, accessibility needs, and communication standards clear.</p>
+    </div>
     <div class="grid-3">
-      <blockquote class="testimonial"><p>Healthy Start helps patients get to appointments with less stress and more confidence.</p><cite>- Patient family member</cite></blockquote>
-      <blockquote class="testimonial"><p>The team understands healthcare transportation and communicates clearly.</p><cite>- Care coordination partner</cite></blockquote>
-      <blockquote class="testimonial"><p>Reliable local transportation support makes recurring care easier to manage.</p><cite>- Community partner</cite></blockquote>
+      <div class="card"><strong>Confidentiality</strong><p>Client information is protected and shared only with authorized staff who need it to coordinate, manage, or deliver services.</p></div>
+      <div class="card"><strong>Service standards</strong><p>Transportation services are delivered according to agreed service expectations, applicable standards, and documented partner workflows.</p></div>
+      <div class="card"><strong>Records and responsibility</strong><p>Program records, ride documentation, and authorization details are maintained to support accountability and service quality.</p></div>
+    </div>
+    <p class="small muted" style="margin-top:1rem;">For the full policy details, visit <a href="policies.html">Company Policies</a>.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="about-pricing">
+  <div class="container">
+    <div class="section-heading">
+      <h2 id="about-pricing">Pricing</h2>
+      <p class="muted">Healthy Start provides straightforward fare guidance so riders and partners can understand expected costs before scheduling.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card"><strong>$20 per ride</strong><p>In-town rides start at $20 per ride, subject to trip details and confirmed service requirements.</p></div>
+      <div class="card"><strong>$4.50 per mile</strong><p>Out-of-town transportation is quoted at $4.50 per mile, with final pricing confirmed before service.</p></div>
+    </div>
+    <p class="small muted" style="margin-top:1rem;">Visit <a href="pricing.html">Pricing & Quotes</a> for more detail.</p>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="about-vehicles">
+  <div class="container">
+    <div class="section-heading">
+      <h2 id="about-vehicles">Vehicles</h2>
+      <p class="muted">Our fleet supports standard, group, and accessible transportation needs across the communities we serve.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><strong>Minivans</strong><p>Comfortable transportation for individual riders, caregivers, and routine appointment travel.</p></div>
+      <div class="card"><strong>Ford Transits</strong><p>Flexible capacity for group transportation, partner programs, and higher-volume coordination.</p></div>
+      <div class="card"><strong>Wheelchair vans</strong><p>Accessible vehicles for riders who require wheelchair-accessible transportation support.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="about-more-benefits">
+<section class="section" aria-labelledby="about-service-details">
   <div class="container">
-    <h2 id="about-more-benefits">Benefits More Detail</h2>
-    <div class="grid-3">
-      <div class="card"><strong>Local service area</strong><p>Coverage across key Eastern and Central North Carolina counties.</p></div>
-      <div class="card"><strong>Accessible options</strong><p>Wheelchair-accessible coordination when requested and available.</p></div>
-      <div class="card"><strong>Clear communication</strong><p>Phone and web workflows help teams coordinate without confusion.</p></div>
-      <div class="card"><strong>Compliance-minded</strong><p>Minimal PHI collection and HIPAA-conscious practices.</p></div>
-      <div class="card"><strong>Flexible use cases</strong><p>Appointments, therapy, dialysis, discharge, and approved community trips.</p></div>
-      <div class="card"><strong>Simple next step</strong><p>Use the form to start a conversation or call the team directly.</p></div>
+    <div class="section-heading">
+      <h2 id="about-service-details">Service Details</h2>
+      <p class="muted">Healthy Start supports both individual riders and organization partners with practical transportation workflows.</p>
     </div>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="about-process">
-  <div class="container">
-    <h2 id="about-process">The Process</h2>
     <div class="grid-3">
-      <div class="card"><strong>1. Request</strong><p>Share the pickup, drop-off, timing, and service needs.</p></div>
-      <div class="card"><strong>2. Confirm</strong><p>We review the details and coordinate the right transportation workflow.</p></div>
-      <div class="card"><strong>3. Ride</strong><p>Patients receive reliable, courteous transportation support.</p></div>
+      <div class="card"><strong>Patient and partner workflows</strong><p>Individuals can book directly, while organizations can request coordinated transportation support.</p></div>
+      <div class="card"><strong>Clear scheduling windows</strong><p>Preferred 24-hour lead time with phone support for urgent or same-day availability questions.</p></div>
+      <div class="card"><strong>Local expertise</strong><p>Routing across served counties helps reduce wait times and support reliable appointment arrival.</p></div>
     </div>
   </div>
 </section>
@@ -240,7 +279,7 @@
           <div>
             <strong>Healthy Start Non‑Emergency Medical Transportation</strong>
             <div>1760 Parkwood Blvd West, Suite B, Wilson, NC 27893</div>
-            <div><a href="tel:+12526741812">(252) 674‑1812</a> · <a href="mailto:rides@healthystartnc.com">rides@healthystartnc.com</a></div>
+            <div><a href="tel:+12526741812">(252) 674‑1812</a></div>
           </div>
         </div>
         <p class="small muted">Reliable, compassionate rides for medical appointments, dialysis, physical therapy, and more. HIPAA‑conscious processes and ADA‑aware vehicle partners.</p>
@@ -265,9 +304,65 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <div class="small muted">© 2025 Healthy Start Non‑Emergency Medical Transportation. All rights reserved.</div>
+      <div class="small muted">© 2026 Healthy Start Non‑Emergency Medical Transportation. All rights reserved.</div>
       <div class="small"><a href="patients.html">Patients</a> · <a href="organizations.html">Organizations</a> · <a href="how-it-works.html">How It Works</a> · <a href="coverage.html">Coverage</a> · <a href="pricing.html">Pricing</a> · <a href="faq.html">FAQ</a> · <a href="compliance.html">Compliance</a> · <a href="careers.html">Careers</a> · <a href="contact.html">Contact</a></div>
     </div>
   </footer>
+  <script>
+    (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+      key: "AIzaSyCrYLtc-mcXQBnHhSeHWDpd_jyrZafLQx8",
+      v: "beta",
+    });
+
+    async function initAboutMap() {
+      const mapEl = document.getElementById("about-map");
+      if (!mapEl || !window.google?.maps?.importLibrary) return;
+      const { Map } = await google.maps.importLibrary("maps");
+      const map = new Map(mapEl, {
+        center: { lat: 35.5, lng: -78.0 },
+        zoom: 8,
+        mapId: "18839ae73651f29aecf24eaa",
+      });
+      map.data.loadGeoJson("assets/data/nc_counties.geojson");
+
+      const activeCounties = new Set([
+        "Wilson", "Wake", "Johnston", "Nash", "Edgecombe", "Pitt", "Wayne", "Greene", "Lenoir"
+      ]);
+
+      function updateMapStyle() {
+        map.data.setStyle((feature) => {
+          const countyName = feature.getProperty("NAME");
+          if (activeCounties.has(countyName)) {
+            return {
+              fillColor: "#7e9f85",
+              fillOpacity: 0.6,
+              strokeColor: "#4d6b53",
+              strokeWeight: 2.0,
+              visible: true
+            };
+          }
+          return { visible: false };
+        });
+      }
+
+      updateMapStyle();
+      document.querySelectorAll(".about-county-pill").forEach((pill) => {
+        pill.addEventListener("click", (event) => {
+          event.preventDefault();
+          const county = pill.getAttribute("data-county");
+          if (activeCounties.has(county)) {
+            activeCounties.delete(county);
+            pill.classList.add("inactive");
+          } else {
+            activeCounties.add(county);
+            pill.classList.remove("inactive");
+          }
+          updateMapStyle();
+        });
+      });
+    }
+
+    initAboutMap();
+  </script>
 </body>
 </html>

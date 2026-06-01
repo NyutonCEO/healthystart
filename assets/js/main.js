@@ -53,7 +53,7 @@ function calculateQuote() {
   const res = document.getElementById('quoteResult');
   const note = document.getElementById('quoteNote');
 
-  const perMile = 4.15; // Out-of-town per-mile example
+  const perMile = 4.50; // Out-of-town per-mile example
 
   if (tripLocal && tripLocal.checked) {
     if (milesRow) milesRow.hidden = true;
@@ -67,7 +67,7 @@ function calculateQuote() {
   const miles = parseFloat(milesInput?.value || '0');
   const total = Math.max(0, miles * perMile);
   if (res) res.textContent = `$${total.toFixed(2)}`;
-  if (note) note.textContent = 'Out-of-town estimate at $4.15/mile. Minimum fare may apply.';
+  if (note) note.textContent = 'Out-of-town estimate at $4.50/mile. Minimum fare may apply.';
 }
 
 // Simple form handlers with HTTPS form submission
